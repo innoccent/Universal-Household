@@ -2,20 +2,13 @@
 
 > A Vue.js project
 
-## Build Setup
+> 每个开发人员切勿单独build，由后台人员统一build！谢谢！
 
-``` bash
-# install dependencies
-npm install
+## 下载之后只需要在相应目录进行```npm install```即可！
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 分工情况
+* 婷婷：首页+活动中心
+* 杨博：分类+登录+注册
+* 冰冰：详情+支付
+* 小玲：定制方案
+* me：闪品+server.js+数据库构建
