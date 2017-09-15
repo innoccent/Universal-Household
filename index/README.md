@@ -1,4 +1,4 @@
-# universal-household
+# index
 
 > A Vue.js project
 
