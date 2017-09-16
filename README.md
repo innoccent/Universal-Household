@@ -31,8 +31,8 @@
        } 
        /** rem写法 **/
        div{
-            width: 0.1rem;
-            height: 0.1rem;
+            width: 1rem;
+            height: 1rem;
        }
        /** 正常ip6下设计换算比例为200，望周知 **/ 
 ```
@@ -49,5 +49,7 @@
 
 ## 关于界面测试
 * 请保证你的页面起码在iphone6、iphone5、Nexus5X、Nexus6P、GalaxyS5五款机型上不出现大浮动差异。
+
+## 统一用在线icon，使用牛晓玲的github账号: niuxiaoling,所有icon存储在house项目中！
 
 ## 未完待续！
