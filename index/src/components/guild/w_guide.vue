@@ -31,7 +31,7 @@
                     },
                     onTouchEnd(){
                         if(this.active==2) {
-                            location.href = '#/router';
+                            location.href = '#/login';
                         }
                     }
                 },
