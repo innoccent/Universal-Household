@@ -14,11 +14,13 @@ export default {
 * {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: #333;
-  background-color: #ececec;
   padding:0;
   margin:0;
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
 }
+  body{
+    background-color: #ececec;
+  }
 </style>
