@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b41a9f4b-7fdc-46df-b00e-dfd326e983a2" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index/src/router/index.js" afterPath="$PROJECT_DIR$/index/src/router/index.js" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index/src/components/login/Login.vue" afterPath="$PROJECT_DIR$/index/src/components/login/Login.vue" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,8 +27,13 @@
       <file leaf-file-name="database.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/database.sql">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="175">
               <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+=======
+            <state relative-caret-position="309">
+              <caret line="56" column="31" lean-forward="true" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -96,10 +105,14 @@
         <option value="$PROJECT_DIR$/server/database.sql" />
         <option value="$PROJECT_DIR$/index/index.html" />
         <option value="$PROJECT_DIR$/index/src/App.vue" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/server/.gitignore" />
         <option value="$PROJECT_DIR$/index/src/components/guild/w_guide.vue" />
+=======
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/index/src/router/index.js" />
+        <option value="$PROJECT_DIR$/index/src/components/login/Login.vue" />
       </list>
     </option>
   </component>
@@ -116,8 +129,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< Updated upstream
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/server/node_modules" />
+=======
+  <component name="PhpServers">
+    <servers />
+>>>>>>> Stashed changes
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
@@ -149,9 +167,38 @@
               <item name="universal-household" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
+<<<<<<< Updated upstream
               <item name="universal-household" type="b2602c69:ProjectViewProjectNode" />
               <item name="universal-household" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="server" type="2a2b976b:PhpTreeStructureProvider$1" />
+=======
+              <item name="Universal-Household" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Universal-Household" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="login" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Universal-Household" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Universal-Household" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="router" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Universal-Household" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Universal-Household" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> Stashed changes
+            </path>
+            <path>
+              <item name="Universal-Household" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Universal-Household" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -172,7 +219,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+<<<<<<< Updated upstream
       <recent name="F:\wamp\www\vue\universal-household\index\static\img" />
+=======
+      <recent name="E:\wamp\www\Vue\Universal-Household\index\static\img" />
+>>>>>>> Stashed changes
       <recent name="F:\wamp\www\vue\universal-household\index\src\assets\js" />
     </key>
   </component>
@@ -191,6 +242,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b41a9f4b-7fdc-46df-b00e-dfd326e983a2" name="默认的" comment="" />
@@ -201,12 +255,21 @@
       <workItem from="1505467385182" duration="500000" />
       <workItem from="1505469064134" duration="978000" />
       <workItem from="1505477846750" duration="1871000" />
+<<<<<<< Updated upstream
       <workItem from="1505524362772" duration="7201000" />
+=======
+      <workItem from="1505524362772" duration="3170000" />
+      <workItem from="1505529646018" duration="2290000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="10550000" />
+=======
+    <option name="totallyTimeSpent" value="8809000" />
+>>>>>>> Stashed changes
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -218,10 +281,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08742005" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2118003" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> Stashed changes
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -432,10 +502,32 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/server/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+=======
+    <entry file="file://$PROJECT_DIR$/index/static/img/ybl_01_03.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index/static/img/ybl_03.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index/static/img/ybl_04.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index/src/components/login/Login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="56" column="31" lean-forward="true" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
