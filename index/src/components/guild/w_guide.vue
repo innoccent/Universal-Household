@@ -1,41 +1,70 @@
 <template>
-    <swiper :options="swiperOption" ref="mySwiper">
-        <!-- slides -->
-        <swiper-slide>I'm Slide 1</swiper-slide>
-        <swiper-slide>I'm Slide 2</swiper-slide>
-        <swiper-slide>I'm Slide 3</swiper-slide>
-        <!-- Optional controls -->
-        <div class="swiper-pagination"  slot="pagination"></div>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-        <div class="swiper-scrollbar"   slot="scrollbar"></div>
-    </swiper>
+    <div class="guide">
+        <swiper :options="swiperOption" ref="mySwiperA" class="swip">
+            <!-- 幻灯内容 -->
+            <swiper-slide class="slide"><img src="/static/img/leader_03.png" alt=""></swiper-slide>
+            <swiper-slide class="slide"><img src="/static/img/leader_05.png" alt=""></swiper-slide>
+            <swiper-slide class="slide"><img src="/static/img/leader_10.png" alt=""></swiper-slide>
+        </swiper>
+    </div>
 </template>
-
 <script>
-    import { swiper, swiperSlide } from 'vue-awesome-swiper'
-    export default {
-        name: 'carrousel',
-        data() {
+    export default{
+        data(){
             return {
                 swiperOption: {
-                    // notNextTick是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true
+                    // 所有配置均为可选（同Swiper配置）
                     notNextTick: true,
-                    // swiper configs 所有的配置同swiper官方api配置
-                    autoplay: 3000,
-                    prevButton:'.swiper-button-prev',
-                    nextButton:'.swiper-button-next',
-                }
+                    grabCursor : true,
+                    setWrapperSize :true,
+                    autoHeight: true,
+                    mousewheelControl : true,
+                    observeParents:true,
+                    onTransitionStart(swiper){
+                        this.active=swiper.realIndex;
+                    },
+                    onTouchEnd(){
+                        if(this.active==2) {
+                            location.href = '#/login';
+                        }
+                    }
+                },
+
             }
         },
-        components: {
-            swiper,
-            swiperSlide
+        computed: {
+            swiper() {
+                return this.$refs.mySwiperA.swiper
+            },
+            active(){
+                return this.swiperOption.active;
+            }
         },
+        mounted() {
+
+        }
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .guide{
+        width:100vw;
+        height:100vh;
+        overflow: hidden;
+        position: relative;
+        background: #fff;
 
+    }
+    .swip{
+        height:100%;
+    }
+    .slide{
+        width:100vw;
+        height:100vh;
+        float: left;
+    }
+    .slide > img{
+        width:100%;
+        height: 100%;
+    }
 </style>
