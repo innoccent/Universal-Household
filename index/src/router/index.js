@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import w_guide from '../components/guild/w_guide.vue'
-import login from '../components/login'
+import login from '../components/login/Login'
 
 Vue.use(Router)
 
