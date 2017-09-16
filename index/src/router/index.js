@@ -5,8 +5,7 @@ import w_guide from '../components/guild/w_guide.vue'
 import login from '../components/login/Login'
 import yloginin from '../components/login/yloginin.vue'
 import yregister from '../components/login/yregister.vue'
-
-
+import p_guide from '../components/guild/w_guide.vue'
 
 Vue.use(Router)
 
@@ -32,5 +31,10 @@ export default new Router({
           name:'yregister',
           component:yregister
       },
+        {
+        path:'/w',
+        name:'w',
+        component:p_guide
+      }
   ]
 })

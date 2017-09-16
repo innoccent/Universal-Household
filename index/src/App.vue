@@ -13,7 +13,6 @@ export default {
 <style>
 * {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  color: #333;
   padding:0;
   margin:0;
   list-style: none;
