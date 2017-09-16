@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b41a9f4b-7fdc-46df-b00e-dfd326e983a2" name="默认的" comment="" />
+    <list default="true" id="b41a9f4b-7fdc-46df-b00e-dfd326e983a2" name="默认的" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index/src/App.vue" afterPath="$PROJECT_DIR$/index/src/App.vue" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +32,8 @@
       <file leaf-file-name="App.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="25">
+              <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -184,12 +186,12 @@
       <workItem from="1505467385182" duration="500000" />
       <workItem from="1505469064134" duration="978000" />
       <workItem from="1505477846750" duration="1871000" />
-      <workItem from="1505524362772" duration="2260000" />
+      <workItem from="1505524362772" duration="2777000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5609000" />
+    <option name="totallyTimeSpent" value="6126000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -286,8 +288,8 @@
           <first_editor relative-caret-position="300">
             <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
             <folding>
-              <marker date="1505479320615" expanded="true" signature="404:468" ph="{...}" />
-              <marker date="1505479320615" expanded="true" signature="501:566" ph="{...}" />
+              <marker date="1505527362782" expanded="true" signature="404:468" ph="{...}" />
+              <marker date="1505527362782" expanded="true" signature="501:522" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -347,8 +349,8 @@
           <first_editor relative-caret-position="318">
             <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
             <folding>
-              <marker date="1505479320615" expanded="true" signature="404:468" ph="{...}" />
-              <marker date="1505479320615" expanded="true" signature="501:566" ph="{...}" />
+              <marker date="1505527362782" expanded="true" signature="404:468" ph="{...}" />
+              <marker date="1505527362782" expanded="true" signature="501:522" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -402,8 +404,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="25">
+          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
           <folding />
         </state>
       </provider>
