@@ -31,8 +31,8 @@
        } 
        /** rem写法 **/
        div{
-            width: 0.1rem;
-            height: 0.1rem;
+            width: 1rem;
+            height: 1rem;
        }
        /** 正常ip6下设计换算比例为200，望周知 **/ 
 ```
