@@ -50,4 +50,6 @@
 ## 关于界面测试
 * 请保证你的页面起码在iphone6、iphone5、Nexus5X、Nexus6P、GalaxyS5五款机型上不出现大浮动差异。
 
+## 统一用在线icon，使用牛晓玲的github账号: niuxiaoling,所有icon存储在house项目中！
+
 ## 未完待续！
