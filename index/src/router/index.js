@@ -12,6 +12,9 @@ import  Address from '../components/me/Address'
 import Me  from '../components/Me'
 import GoodsDetails from '../components/GoodsDetails.vue'
 import OnlinePay from '../components/OnlinePay.vue'
+import Order from '../components/Order'
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +52,11 @@ export default new Router({
             path: '/me',
             name: 'me',
             component:Me
+        },
+        {
+            path: '/order',
+            name: 'order',
+            component: Order
         },
       {
           path: '/goodsdetails',

@@ -1,18 +1,21 @@
 <template>
     <div class="me">
         <div class="meheader">
-            <div class="header">
-                <h1 >个人中心</h1>
-                <h2>PERSONAL <span>CENTER</span></h2>
-            </div>
-            <div class="logo-left ">
-                <span class="iconfont icon-pingjia1 edit" ></span>
-            </div>
-            <div class="header-logo">
-            </div>
-            <div class="logo-right">
-                <span class="iconfont icon-dingdan-copy copy" ></span>
-            </div>
+            <a href="#/home">
+                <div class="header">
+                    <h1 >个人中心</h1>
+                    <h2>PERSONAL <span>CENTER</span></h2>
+                </div>
+                <div class="logo-left ">
+                    <span class="iconfont icon-pingjia1 edit" ></span>
+                </div>
+                <div class="header-logo">
+                </div>
+                <div class="logo-right">
+                    <span class="iconfont icon-dingdan-copy copy" ></span>
+                </div>
+            </a>
+
         </div>
         <div class="name">
             <h2>Mr Li d Hepburn</h2>
@@ -118,14 +121,16 @@
 
             </ul>
         </div>
-
+        <footer_></footer_>
     </div>
 </template>
 <script>
+    import footer_ from './lib/footer.vue'
     export default{
         data(){
             return {}
-        }
+        },
+        components:{footer_}
     }
 </script>
 <style scoped>
@@ -133,7 +138,7 @@
          width: 100%;
          height: 1.5rem;
          position: relative;
-         background:url('../../static/img/2009071106473973.jpg') no-repeat;
+         background:url('/static/img/2009071106473973.jpg') no-repeat;
      }
     .header{
         width: 100%;
