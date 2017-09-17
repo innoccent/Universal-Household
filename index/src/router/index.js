@@ -1,15 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Htbhome from '@/components/Htbhome'
+import HtbActivity from '../components/HtbActivity'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    }
-  ]
+    routes: [
+        {
+            path: '/',
+            name: 'Htbhome',
+            component: Htbhome
+        },
+        {
+            path:'/htbactivity',
+            name:'htbactivity',
+            component:HtbActivity
+        }
+    ]
 })
