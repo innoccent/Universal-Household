@@ -18,11 +18,11 @@
                     <img src="/static/img/ybl2_07.png" alt="">
                 </div>
                 <div class="input-con">
-                    <input type="text" v-model="form.account" placeholder="用户名，2-8个字符">
-                    <input type="text" v-model="form.phone" placeholder="请输入您的手机号">
-                    <input type="text" v-model="form.check" placeholder="请输入验证码">
-                    <input type="text" v-model="form.pass" placeholder="请输入您的密码">
-                    <div class="check">获取验证码</div>
+                    <input type="text" v-model="form.account" placeholder="用户名，2-8个字符" maxlength="8" @keyup="check('account')" :class="{active:check('account')}">
+                    <input type="text" v-model="form.phone" placeholder="请输入您的手机号" maxlength="11" @keyup="check('phone')" :class="{active:check('phone')}">
+                    <input type="text" v-model="form.check" placeholder="请输入验证码" maxlength="6">
+                    <input type="password" v-model="form.pass" placeholder="请输入您的密码" maxlength="16" @keyup="check('pass')" :class="{active:check('pass')}">
+                    <div :class="{check:true,get:check('phone')}">获取验证码</div>
                     <div class="rember">
                         <span>
                             <span class="bluebtn"></span>我已阅读并接受<a href="">版权声明</a>和<a href="">隐私保护</a>条款
@@ -47,16 +47,34 @@
             </div>
 
         </div>
-        <div class="alert" v-if="active==true">
+        <div class="alert" :class="{scale:active==true}">
             <div class="alertcon">
-                <div class="alertimg"><img src="/static/img/ybl3_02_03.png" alt=""></div>
+                <div class="alertimg" v-if="alertbut==true"><img src="/static/img/ybl3_02_03.png" alt=""></div>
+                <div class="alertimg" v-if="alertbut2==true"><img src="/static/img/ybl3_03.png" alt=""></div>
                 <div class="alerttext">
-                    <span>完成注册，欢迎小主到来</span>
-                    <span>Registered successfully</span>
+                    <span>{{message}}</span>
+                    <span v-if="status">Registered successfully</span>
+                    <span v-else>Registered failed</span>
                 </div>
-                <div class="alertbut" @click="enter">
+                <div class="alertbut" @click="enter" v-if="alertbut==true">
                     <span>立即登录</span>
                     <span>THE LOGIN</span>
+                </div>
+                <div class="alertbut2" v-if="alertbut2==true">
+                    <div class="pay">
+                        <div class="trueimg">
+                            <img src="/static/img/ybldan_03.png" alt="">
+                        </div>
+                        <div class="truetext" @click="reset">
+                            <h4>再试一次</h4>
+                            <span>MORE TIME</span>
+                        </div>
+
+                    </div>
+                    <div @click="reset">
+                        <h4>检查网络</h4>
+                        <span>THE NETWORK</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,14 +92,45 @@
                     pass:'',
                 },
                 active:false,
+                alertbut:false,
+                alertbut2:true,
+                message:'完成注册，欢迎小主到来',
+                status:true
             }
         },
         methods: {
+            check(kind){
+                var result = false;
+                switch (kind){
+                    case 'account':
+                        if(this.form.account.length<8){
+                            result=true;
+                        }else if(this.form.account.length>2){
+                            result=false;
+                        }
+                        break;
+                    case 'phone':
+                        if(this.form.phone.length<11){
+                            result=true;
+                        }
+                        break;
+                    case 'pass':
+                        if(this.form.pass.length<16){
+                            result=true;
+                        }
+                        break;
+                }
+                return result;
+            },
+            reset(){
+                this.active=false;
+                this.status=true;
+            },
             enter:function () {
                 location.href='#/yloginin'
             },
             submit:function () {
-                fetch('/api/check_account',{
+                fetch('/api/login/check_register',{
                     method:'POST',
                     headers:{'Content-Type':'application/json'},
                     body:JSON.stringify(this.form),
@@ -89,9 +138,17 @@
                     .then(res=>res.json())
                     .then(data=>{
                         if(data.code==4){
+                            this.message=data.message;
                             this.active=true;
+                            this.status=false;
+                            this.alertbut=false;
+                            this.alertbut2=true;
+
                         }else if(data.code==2){
-                            location.href='';
+                            this.message='完成注册，欢迎小主到来',
+                                this.alertbut=true;
+                            this.alertbut2=false;
+                            this.active=true;
                         }
                     })
             }
@@ -238,6 +295,10 @@
         right:.24rem;
         line-height: .2rem;
         text-align: center;
+        transition: background .3s linear;
+    }
+    div.get{
+        background: #eee;
     }
     .input-con input:nth-child(3){
         background: url("/static/img/ybl4_11.png") center left no-repeat;
@@ -299,6 +360,8 @@
         top:0;
         z-index:14;
         background: rgba(0,0,0,.7);
+        transform: scale(0);
+        transition: all .3s linear;
     }
     .alertcon{
         position: absolute;
@@ -351,5 +414,55 @@
     img{
         width:100%;
         height:100%;
+    }
+    .scale{
+        transform: scale(1);
+    }
+    .alertbut2{
+        top:2rem;
+        position: absolute;
+        left:50%;
+        transform:translateX(-50%);
+        width:90%;
+        height:.5rem;
+        background:#2c2c2c;
+        border-radius: .25rem;
+        background-size:100%;
+        display: flex;
+        align-items: center;
+        font-size:.12rem;
+    }
+    .trueimg{
+        width:.31rem;
+        height:.31rem;
+    }
+    .alertbut2>div{
+        border-radius: 0.4rem;
+        height: 0.4rem;
+        width: 50%;
+        text-align: center;
+        padding: 0.05rem 0;
+        margin-left:.05rem;
+    }
+    .alertbut2>div.pay h4{
+        color:#fff;
+    }
+    .alertbut2>div.pay span{
+        color: #fff;
+    }
+    .alertbut2>div.pay{
+        background: #FFCA13;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .alertbut2>div h4{
+        color:#ABABAB;
+    }
+    .alertbut2>div span{
+        color: #ABABAB;
+    }
+    input.active{
+        border-color: red;
     }
 </style>
