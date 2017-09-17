@@ -1,6 +1,6 @@
 <template>
     <div>
-        <headers></headers>
+        <headers :pageinfo="$route.query.name"></headers>
             <div class="box"></div>
             <div class="center">
                 <div class="center1">

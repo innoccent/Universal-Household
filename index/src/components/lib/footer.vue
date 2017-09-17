@@ -16,7 +16,7 @@
             <li @click="up(3)">
                 <a href="#/mode">
                     <img src="/static/img/htbimg/design_08.png" alt="" :class="{'up':active==3}">
-                    <p :class="{'active':active==3}">定制</p>
+                    <p :class="{'active':active==3}">定制方案</p>
                 </a>
             </li>
             <li @click="up(4)">

@@ -13,6 +13,12 @@ const md5 = require('./class/function')
 //加载登录路由
 const user = require('./router/login');
 
+//加载个人页路由
+const info = require('./router/me');
+
+//加载商品页路由
+const goods = require('./router/goods');
+
 //链接数据库
 const con = mysql.createConnection({
     host:'localhost',
@@ -26,6 +32,10 @@ server.use(express.static('./public'));
 server.use(bodyParser.json());
 
 server.use('/api/login',user);
+
+server.use('/api/user',info);
+
+server.use('/api/goods',goods)
 
 server.listen(port);
 

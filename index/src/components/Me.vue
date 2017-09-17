@@ -18,10 +18,10 @@
 
         </div>
         <div class="name">
-            <h2>Mr Li d Hepburn</h2>
-            <h3>奥莉黛·赫本</h3>
-            <h2 class="lizhi">生活其实本就该这样平平淡淡…</h2>
-            <h2 class="level">57.vel</h2>
+            <h2>{{info.ename}}</h2>
+            <h3>{{info.username}}</h3>
+            <h2 class="lizhi">{{info.message}}</h2>
+            <!--<h2 class="level">57.vel</h2>-->
         </div>
         <div class="order">
             <div class="order-title">
@@ -128,9 +128,19 @@
     import footer_ from './lib/footer.vue'
     export default{
         data(){
-            return {}
+            return {
+                id:localStorage.uid,
+                info:{}
+            }
         },
-        components:{footer_}
+        components:{footer_},
+        mounted(){
+            fetch('/api/user/get_info_by_id?id='+this.id)
+                .then(res=>res.json())
+                .then(data=>{
+                    this.info = data.data;
+                })
+        }
     }
 </script>
 <style scoped>
