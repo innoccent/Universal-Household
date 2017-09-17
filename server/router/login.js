@@ -19,7 +19,7 @@ router.post('/check_account',(req,res)=>{
             res.json({code:4,message:err.message});
         }else{
             if(result.length>0){
-                if(md5.getMD5(result[0].password)==md5.getMD5(pass)){
+                if(result[0].password ==md5.getMD5(pass)){
                     res.json({code:2,message:'ok'})
                 }else{
                     res.json({code:4,message:'密码错误'});
