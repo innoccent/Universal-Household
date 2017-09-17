@@ -6,6 +6,8 @@ import login from '../components/login/Login'
 import yloginin from '../components/login/yloginin.vue'
 import yregister from '../components/login/yregister.vue'
 import p_guide from '../components/guild/w_guide.vue'
+import classify from '../components/class/classify.vue'
+
 
 Vue.use(Router)
 
@@ -35,6 +37,11 @@ export default new Router({
         path:'/w',
         name:'w',
         component:p_guide
+      },
+      {
+          path:'/classify',
+          name:'classify',
+          component:classify
       }
   ]
 })

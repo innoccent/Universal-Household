@@ -43,17 +43,35 @@
             </div>
 
         </div>
-        <div class="alert" v-if="active==true">
+        <div class="alert" :class="{scale:active==true}">
             <div class="alertcon">
-                <div class="alertimg"><img src="/static/img/ybl3_03.png" alt=""></div>
+                <div class="alertimg" v-if="alertbut==true"><img src="/static/img/ybl3_02_03.png" alt=""></div>
+                <div class="alertimg" v-if="alertbut2==true"><img src="/static/img/ybl3_03.png" alt=""></div>
                 <div class="alerttext">
                     <span>登陆成功，欢迎小主来到鱼设计</span>
                     <span>welcome small Lord to fish design</span>
                 </div>
-                <div class="alertbut" @click="enter">
+                <div class="alertbut" @click="enter" v-if="alertbut==true">
                     <span>开启新的生活</span>
                     <span>START A NEW LIFE</span>
                 </div>
+                <div class="alertbut2" v-if="alertbut2==true">
+                    <div class="pay">
+                        <div class="trueimg">
+                            <img src="/static/img/ybldan_03.png" alt="">
+                        </div>
+                        <div class="truetext">
+                            <h4>再试一次</h4>
+                            <span>MORE TIME</span>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h4>检查网络</h4>
+                        <span>THE NETWORK</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -68,11 +86,13 @@
                     pass:'',
                 },
                 active:false,
+                alertbut:true,
+                alertbut2:false,
             }
         },
         methods: {
             enter:function () {
-                location.href='#/htbhome'
+                location.href='#/home'
             },
             submit:function () {
                 fetch('/api/check_account',{
@@ -280,6 +300,8 @@
         top:0;
         z-index:14;
         background: rgba(0,0,0,.7);
+        transform: scale(0);
+        transition: all .3s linear;
     }
     .alertcon{
         position: absolute;
@@ -332,5 +354,52 @@
     img{
         width:100%;
         height:100%;
+    }
+    .scale{
+        transform: scale(1);
+    }
+    .alertbut2{
+        top:2rem;
+        position: absolute;
+        left:50%;
+        transform:translateX(-50%);
+        width:90%;
+        height:.5rem;
+        background:#2c2c2c;
+        border-radius: .25rem;
+        background-size:100%;
+        display: flex;
+        align-items: center;
+        font-size:.12rem;
+    }
+    .trueimg{
+        width:.31rem;
+        height:.31rem;
+    }
+    .alertbut2>div{
+        border-radius: 0.4rem;
+        height: 0.4rem;
+        width: 50%;
+        text-align: center;
+        padding: 0.05rem 0;
+        margin-left:.05rem;
+    }
+    .alertbut2>div.pay h4{
+        color:#fff;
+    }
+    .alertbut2>div.pay span{
+        color: #fff;
+    }
+    .alertbut2>div.pay{
+        background: #FFCA13;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .alertbut2>div h4{
+        color:#ABABAB;
+    }
+    .alertbut2>div span{
+        color: #ABABAB;
     }
 </style>

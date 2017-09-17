@@ -47,16 +47,33 @@
             </div>
 
         </div>
-        <div class="alert" v-if="active==true">
+        <div class="alert" :class="{scale:active==true}">
             <div class="alertcon">
-                <div class="alertimg"><img src="/static/img/ybl3_02_03.png" alt=""></div>
+                <div class="alertimg" v-if="alertbut==true"><img src="/static/img/ybl3_02_03.png" alt=""></div>
+                <div class="alertimg" v-if="alertbut2==true"><img src="/static/img/ybl3_03.png" alt=""></div>
                 <div class="alerttext">
                     <span>完成注册，欢迎小主到来</span>
                     <span>Registered successfully</span>
                 </div>
-                <div class="alertbut" @click="enter">
+                <div class="alertbut" @click="enter" v-if="alertbut==true">
                     <span>立即登录</span>
                     <span>THE LOGIN</span>
+                </div>
+                <div class="alertbut2" v-if="alertbut2==true">
+                    <div class="pay">
+                        <div class="trueimg">
+                            <img src="/static/img/ybldan_03.png" alt="">
+                        </div>
+                        <div class="truetext">
+                            <h4>再试一次</h4>
+                            <span>MORE TIME</span>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h4>检查网络</h4>
+                        <span>THE NETWORK</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,6 +91,8 @@
                     pass:'',
                 },
                 active:false,
+                alertbut:false,
+                alertbut2:true,
             }
         },
         methods: {
@@ -299,6 +318,8 @@
         top:0;
         z-index:14;
         background: rgba(0,0,0,.7);
+        transform: scale(0);
+        transition: all .3s linear;
     }
     .alertcon{
         position: absolute;
@@ -351,5 +372,8 @@
     img{
         width:100%;
         height:100%;
+    }
+    .scale{
+        transform: scale(1);
     }
 </style>
