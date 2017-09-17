@@ -47,7 +47,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="next">
+            <div class="next" @click="next">
                 <div>
                     <h2>下一步</h2>
                     <span>NEXT STEP</span>
@@ -57,17 +57,20 @@
 
         <div class="alert" v-if="active==true">
             <div class="alertcon">
-                <div class="alertimg"><img src="/static/img/ybl3_03.png" alt=""></div>
+                <div class="alertimg">
+                    <img src="/static/img/ybl3_02_03.png" alt="" v-show="choice==true">
+                    <img src="/static/img/ybl3_03.png" alt="" v-show="choice==false">
+                </div>
                 <div class="alerttext">
-                    <span>小主你马上就可以拥有我了哦！</span>
+                    <h4>小主你马上就可以拥有我了哦！</h4>
                     <span>SMALL LORD YOU CAN HAVE RIGHT AWAY!</span>
                 </div>
                 <div class="alertbut">
-                    <div :class="{pay:choice}" @click="enter">
+                    <div class=pay @click="pay">
                         <h4>立即支付</h4>
                         <span>THE PAY</span>
                     </div>
-                    <div :class="{pay:choice==false}" @click="enter">
+                    <div @click="see">
                         <h4>我再看看</h4>
                         <span>I WILL SEE</span>
                     </div>
@@ -88,7 +91,7 @@
                         <input type="text">
                         <input type="text">
                     </div>
-                    <button>确认</button>
+                    <button @click="submit">确认</button>
                 </div>
 
             </div>
@@ -102,18 +105,29 @@
         data(){
             return{
                 active:false,
-                active1:true,
+                active1:false,
                 choice:true,
             }
         },
         methods:{
-            enter:function () {
-                if(this.choice){
-                    this.choice=false;
-                }else{
-                    this.choice=true;
-                }
+            next:function () {
+                this.active=true;
+            },
+            pay:function () {
+                this.choice=true;
+                this.active1=true;
+                this.active=false;
+            },
+            see:function () {
+                this.choice=false;
+                this.active1=false;
+                this.active=false;
+            },
+            submit:function () {
+//                location.href=''
+                history.go(0);
             }
+
         }
 
     }
@@ -239,9 +253,9 @@
     }
     .next div{
         width: 100%;
-        background: red;
+        background: #EE1B1B;
         border-radius: 0.05rem;
-        box-shadow: 0.02rem 0.02rem 0.02rem rgba(255,68,36,0.2);
+        box-shadow: 0.02rem 0.02rem 0.02rem rgba(255,68,36,0.9);
         font-size: 0.1rem;
         text-align: center;
     }
@@ -275,7 +289,7 @@
         position: absolute;
         left:50%;
         transform:translateX(-50%);
-        top:0;
+        top:-0.1rem;
         z-index:8;
     }
     .alerttext{

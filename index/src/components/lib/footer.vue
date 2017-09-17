@@ -14,13 +14,13 @@
                 </a>
             </li>
             <li @click="up(3)">
-                <a href="javascript:;">
+                <a href="#/mode">
                     <img src="/static/img/htbimg/design_08.png" alt="" :class="{'up':active==3}">
                     <p :class="{'active':active==3}">定制</p>
                 </a>
             </li>
             <li @click="up(4)">
-                <a href="javascript:;">
+                <a href="#/me">
                     <img src="/static/img/htbimg/my_10.png" alt="" :class="{'up':active==4}">
                     <p :class="{'active':active==4}">我的</p>
                 </a>
@@ -31,14 +31,12 @@
 <script>
     export default {
         name:'footer',
-        data(){
-          return{
-              active:null,
-          }
+        props:{
+          active:String
         },
         methods:{
             up:function (n) {
-                this.active=n;
+//                this.active=n;
             }
         }
     }

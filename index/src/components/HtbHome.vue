@@ -61,7 +61,7 @@
             </div>
         </div>
         <mylike></mylike>
-        <myfooter></myfooter>
+        <myfooter active="1"></myfooter>
     </div>
 </template>
 <script>
@@ -89,6 +89,10 @@
         methods:{
             search:function () {
                 this.isSearch=!this.isSearch;
+        },
+        mounted(){
+            if(!localStorage.uid){
+                location.href='#/login';
             }
         }
     }

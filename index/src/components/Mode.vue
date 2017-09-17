@@ -2,29 +2,33 @@
     <div>
         <mode_header></mode_header>
         <div class="main">
-             <div class="main-top">
-                 <div class="main-top-main">
-                     <div class="main-top-left">
-                         <div class="pic1"></div>
-                         <div class="pic2"></div>
-                     </div>
-                     <div class="make-mode">
-                         <h1>定制方案</h1>
-                         <h2>Customized</h2>
-                     </div>
-                     <div class="main-top-left">
-                         <div class="pic1"></div>
-                         <div class="pic2"></div>
-                     </div>
-                 </div>
-             </div>
+            <a href="javascript:;">
+                <div class="main-top">
+                    <div class="main-top-main">
+                        <div class="main-top-left">
+                            <div class="pic1"></div>
+                            <div class="pic2"></div>
+                        </div>
+                        <div class="make-mode">
+                            <h1>定制方案</h1>
+                            <h2>Customized</h2>
+                        </div>
+                        <div class="main-top-left">
+                            <div class="pic1"></div>
+                            <div class="pic2"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
         <mode_list></mode_list>
+        <mode_footer active="3"></mode_footer>
     </div>
 </template>
 <script>
     import modeHeader from  './mode/modeHeader.vue'
     import modeList  from  './mode/modeList.vue'
+    import footers from './lib/footer.vue'
     export default{
         data(){
             return {}
@@ -32,6 +36,7 @@
         components:{
             mode_header:modeHeader,
             mode_list:modeList,
+            mode_footer:footers
         }
     }
 </script>
