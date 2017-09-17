@@ -77,6 +77,11 @@
             'mylately':lately,
             'mylike':like,
             'myfooter':footer
+        },
+        mounted(){
+            if(!localStorage.uid){
+                location.href='#/login';
+            }
         }
     }
 </script>

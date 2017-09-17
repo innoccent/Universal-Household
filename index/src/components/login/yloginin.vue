@@ -48,8 +48,9 @@
                 <div class="alertimg" v-if="alertbut==true"><img src="/static/img/ybl3_02_03.png" alt=""></div>
                 <div class="alertimg" v-if="alertbut2==true"><img src="/static/img/ybl3_03.png" alt=""></div>
                 <div class="alerttext">
-                    <span>登陆成功，欢迎小主来到鱼设计</span>
-                    <span>welcome small Lord to fish design</span>
+                    <span>{{message}}</span>
+                    <span v-if="status">welcome small Lord to fish design</span>
+                    <span v-else>wrong info from Lord input</span>
                 </div>
                 <div class="alertbut" @click="enter" v-if="alertbut==true">
                     <span>开启新的生活</span>
@@ -60,13 +61,13 @@
                         <div class="trueimg">
                             <img src="/static/img/ybldan_03.png" alt="">
                         </div>
-                        <div class="truetext">
+                        <div class="truetext" @click="reset">
                             <h4>再试一次</h4>
                             <span>MORE TIME</span>
                         </div>
 
                     </div>
-                    <div>
+                    <div @click="reset">
                         <h4>检查网络</h4>
                         <span>THE NETWORK</span>
                     </div>
@@ -88,11 +89,22 @@
                 active:false,
                 alertbut:true,
                 alertbut2:false,
+                message:'登陆成功，欢迎小主来到鱼设计',
+                status:true,
+                id:null
             }
         },
         methods: {
-            enter:function () {
-                location.href='#/home'
+            reset(){
+              this.active=false;
+              this.status=true;
+              for(let i in this.form){
+                  this.form[i]='';
+              }
+            },
+            enter(){
+                localStorage.uid = this.id;
+                location.href='#/home';
             },
             submit:function () {
                 fetch('/api/login/check_account',{
@@ -103,9 +115,18 @@
                     .then(res=>res.json())
                     .then(data=>{
                         if(data.code==4){
+                            this.message=data.message;
                             this.active=true;
+                            this.status=false;
+                            this.alertbut=false;
+                            this.alertbut2=true;
+
                         }else if(data.code==2){
-                            location.href='';
+                            this.message='登陆成功，欢迎小主来到鱼设计';
+                            this.id=data.id;
+                            this.alertbut=true;
+                            this.alertbut2=false;
+                            this.active=true;
                         }
                     })
             }
