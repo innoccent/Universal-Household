@@ -95,7 +95,7 @@
                 location.href='#/home'
             },
             submit:function () {
-                fetch('/api/check_account',{
+                fetch('/api/login/check_account',{
                     method:'POST',
                     headers:{'Content-Type':'application/json'},
                     body:JSON.stringify(this.form),

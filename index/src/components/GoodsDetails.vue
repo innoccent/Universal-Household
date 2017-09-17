@@ -1,0 +1,596 @@
+<template>
+    <div>
+        <headers></headers>
+            <div class="box"></div>
+            <div class="center">
+                <div class="center1">
+                    <div class="img">
+                        <img src="/static/img/lrb_10.png" alt="">
+                    </div>
+                    <div class="title">
+                        <div class="t_left">
+                            <h2>欧式简约茶几</h2>
+                            <span>EUROPEAN CONTSLSENT TABLE</span>
+                        </div>
+                        <div class="t_right">
+                            <span>￥</span>
+                            <span class="price">999.00</span>
+                        </div>
+                    </div>
+                    <p>每一天都肆意的生活在自己塑造的空间里，欣赏艺术精品般的家具，将生活的感动化为细致的品味</p>
+                </div>
+                <div class="center2"></div>
+                <div class="center3"></div>
+            </div>
+            <div class="goods">
+                <div class="title1">
+                    <div class="title1_img"><img src="/static/img/lrb_16_2.png" alt=""></div>
+                    <div class="title1_word">
+                        <h2 class="word1">商品详情</h2>
+                        <span class="word2">GOODS DETAILS</span>
+                        <span class="word3">GOODS DETAILS</span>
+                    </div>
+                    <div class="title1_img"><img src="/static/img/lrb_16_1.png" alt=""></div>
+                </div>
+                <div class="content">
+                    <div class="content1">
+                        <ul>
+                            <li>
+                                <div class="list"><div></div></div>
+                                <div class="list_word">品牌：曼斯菲尔</div>
+                            </li>
+                            <li>
+                                <div class="list"><div></div></div>
+                                <div class="list_word">型号：A-002</div>
+                            </li>
+                            <li>
+                                <div class="list"><div></div></div>
+                                <div class="list_word">设计元素：做旧 其他 原木 异性 拼接 金属</div>
+                            </li>
+                            <li>
+                                <div class="list"><div></div></div>
+                                <div class="list_word">形状：长方形</div>
+                            </li>
+                            <li>
+                                <div class="list"><div></div></div>
+                                <div class="list_word">产地：上海</div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="list"><div></div></div>
+                                <div class="list_word">规格参数</div>
+                            </li>
+                            <li>
+                                <div class="list list1"><div></div></div>
+                                <div class="list_word">材质：实木</div>
+                            </li>
+                            <li>
+                                <div class="list list1"><div></div></div>
+                                <div class="list_word">家具结构：框架结构</div>
+                            </li>
+                            <li>
+                                <div class="list list1"><div></div></div>
+                                <div class="list_word">尺寸：142*67*75木板：5cm</div>
+                            </li>
+                            <li>
+                                <div class="list list1"><div></div></div>
+                                <div class="list_word">风格：欧式复古</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="color">
+                <div class="title1">
+                    <div class="title1_img"><img src="/static/img/lrb_16_2.png" alt=""></div>
+                    <div class="title1_word">
+                        <h2 class="word1">颜色选择</h2>
+                        <span class="word2">COLOR CHOICES</span>
+                        <span class="word3">COLOR CHOICES</span>
+                    </div>
+                    <div class="title1_img"><img src="/static/img/lrb_16_1.png" alt=""></div>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div><span>银白</span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="size">
+                <div class="title1">
+                    <div class="title1_img"><img src="/static/img/lrb_16_2.png" alt=""></div>
+                    <div class="title1_word">
+                        <h2 class="word1">尺寸大小</h2>
+                        <span class="word2">SIZE DIMENSION</span>
+                        <span class="word3">SIZE DIMENSION</span>
+                    </div>
+                    <div class="title1_img"><img src="/static/img/lrb_16_1.png" alt=""></div>
+                </div>
+                <div class="content">
+                    <div>
+                        <img src="/static/img/lrb_14.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="title1">
+                    <div class="title1_img"><img src="/static/img/lrb_16_2.png" alt=""></div>
+                    <div class="title1_word">
+                        <h2 class="word1">商品细节</h2>
+                        <span class="word2">PRODUCT DETAILS</span>
+                        <span class="word3">PRODUCT DETAILS</span>
+                    </div>
+                    <div class="title1_img"><img src="/static/img/lrb_16_1.png" alt=""></div>
+                </div>
+                <div class="content">
+                    <div>
+                        <img src="/static/img/lrb_18.png" alt="">
+                    </div>
+                </div>
+                <div class="desc1">
+                    <h2>利落设计</h2>
+                    <div></div>
+                    <span>拆边三角形的稳固平稳安全，增大受力面积保护地板</span>
+                </div>
+                <div class="content">
+                    <div>
+                        <img src="/static/img/lrb_21.png" alt="">
+                    </div>
+                </div>
+                <div class="desc1">
+                    <h2>美在面上</h2>
+                    <div></div>
+                    <span>桌面美观易清洁，边缘光滑细腻，降低磕碰伤害</span>
+                </div>
+            </div>
+            <div class="client">
+                <div class="title1">
+                    <div class="title1_img"><img src="/static/img/lrb_16_2.png" alt=""></div>
+                    <div class="title1_word">
+                        <h2 class="word1">客户评价</h2>
+                        <span class="word2">CLIENT EVALUATION</span>
+                        <span class="word3">CLIENT EVALUATION</span>
+                    </div>
+                    <div class="title1_img"><img src="/static/img/lrb_16_1.png" alt=""></div>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <h2>很棒哦</h2><div></div>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                        </li>
+                        <li>
+                            <h2>还不错</h2><div></div>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                        </li>
+                        <li>
+                            <h2>一般般</h2><div></div>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                        </li>
+                        <li>
+                            <h2>太差了</h2><div></div>
+                            <span class="icon-wujiaoxing"></span>
+                            <span class="icon-wujiaoxing"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="number">
+                <div class="title1">
+                    <div class="title1_img"><img src="/static/img/lrb_16_2.png" alt=""></div>
+                    <div class="title1_word">
+                        <h2 class="word1">数量选择</h2>
+                        <span class="word2">NUMBER OF CHOICES</span>
+                        <span class="word3">NUMBER OF CHOICES</span>
+                    </div>
+                    <div class="title1_img"><img src="/static/img/lrb_16_1.png" alt=""></div>
+                </div>
+                <div class="content">
+                    <div class="l_content">
+                        <div><img src="../../static/img/lrb_23.png" alt=""></div>
+                        <input type="text" value="0">
+                        <div><img src="../../static/img/lrb_25.png" alt=""></div>
+                    </div>
+                    <div class="r_content">
+                        总计：<span>999.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="kong"></div>
+            <footer>
+                <a href=""></a>
+                <a href=""></a>
+            </footer>
+    </div>
+</template>
+<script>
+    import Headers from './lib/Header.vue'
+    export default{
+        name:'goodsdetails',
+        components:{ Headers }
+    }
+</script>
+<style scoped>
+    .box{
+        width: 100%;
+        height: 0.5rem;
+        background: #FFCA13;
+        position: relative;
+        top:0.5rem;
+    }
+    .center{
+        width: 78%;
+        height: 3.08rem;
+        position: relative;
+        left: 11%;
+        box-sizing: border-box;
+    }
+    .center1,.center2,.center3{
+        width: 100%;
+        height: 3.08rem;
+        position: absolute;
+        left: 0;
+        top:0;
+        background: #fff;
+        border-radius: 0.05rem;
+        box-shadow: 0 0.04rem 0.05rem rgba(0,0,0,0.2);
+    }
+    .center1{
+        width: 100%;
+        left: 0;
+        top:0;
+        z-index: 10;
+        overflow: hidden;
+    }
+    .center2{
+        width: 94%;
+        left: 3%;
+        top:0.06rem;
+        z-index: 9;
+    }
+    .center3{
+        width: 86%;
+        left: 7%;
+        top:0.12rem;
+        z-index: 8;
+    }
+    .center1 .img{
+        width: 100%;
+        height: 2.2rem;
+    }
+    .img>img{
+        width: 100%;
+    }
+    .center1 .title{
+        width: 100%;
+        padding:  0.06rem;
+        box-sizing: border-box;
+        display: flex;
+    }
+    .center1 .title .t_left{
+        width:70%;
+        font-size: 0.14rem;
+    }
+    .center1 .title .t_left h2{
+        font-size: 0.12rem;
+    }
+    .center1 .title .t_left span{
+        font-size: 0.12rem;
+    }
+    .center1 .title .t_right{
+        width:30%;
+        font-size: 0.12rem;
+    }
+    .center1 .title .t_right span:first-child{
+        color: #EE1B1B;
+        font-size: 0.14rem;
+    }
+    .center1 .title .t_right span:last-child{
+        color: #EE1B1B;
+        font-size: 0.2rem;
+    }
+    .center1 p{
+        font-size: 0.12rem;
+        color: #797979;
+        padding:  0 0.06rem;
+    }
+    .goods{
+        width: 100%;
+        position: relative;
+        top:0.2rem;
+    }
+    .title1{
+        width: 50%;
+        margin-left: 25%;
+        height: 0.52rem;
+        display: flex;
+        align-items: center;
+    }
+    .title1 .title1_img{
+        display: flex;
+        width: 0.3rem;
+    }
+    .title1 .title1_img img{
+        width: 100%;
+    }
+    .title1 .title1_word{
+        font-size: 0.12rem;
+        text-align: center;
+        color: #555;
+    }
+    .title1 .title1_word .word2{
+        font-size: 0.1rem;
+    }
+    .title1 .title1_word .word3{
+        display: inline-block;
+        width: 1rem;
+        font-size: 0.12rem;
+        color: #5CD8E4;
+        position: relative;
+        left: 0;
+        top:-0.18rem;
+        z-index: -1;
+    }
+    .goods .content, .color .content{
+        width: 3.51rem;
+        margin:  0 0.12rem;
+        background: #fff;
+        padding: 0.2rem;
+    }
+    .goods .content1{
+        width: 100%;
+        font-size: 0.12rem;
+    }
+    .goods .content1 ul{
+        border-bottom: 1px dashed #9d9d9d;
+        padding: 0.1rem ;
+    }
+    .goods .content1 ul>li{
+        height: 0.2rem;
+        display: flex;
+        align-items: center;
+    }
+    .goods .content1 .list{
+        position: relative;
+        width: 0.1rem;
+        height: 0.1rem;
+        border-radius: 50%;
+        background: #1ebce4;
+        margin-right: 0.1rem;
+    }
+    .goods .content1 .list>div{
+        position: absolute;
+        width: 0.06rem;
+        height: 0.06rem;
+        border-radius: 50%;
+        background: #ffca13;
+        left: 0.02rem;
+        top:0.02rem;
+    }
+    .goods .content1 .list1{
+        background: #fff;
+    }
+    .goods .content1 .list1>div{
+        background: #fff;
+    }
+
+    /*颜色选择*/
+    .color{
+        width: 100%;
+        position: relative;
+        top:0.35rem;
+    }
+    .color ul{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+    .color ul li{
+        width: 20%;
+        text-align: center;
+        margin-bottom: 0.1rem;
+    }
+    .color ul li div:first-child{
+        width: 0.3rem;
+        height: 0.3rem;
+        background: #9d9d9d;
+        border-radius: 50%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .color ul li:hover div:first-child{
+        transform: scale(1.2);
+        transition: transform  0.3s cubic-bezier(0, -0.19, 0.48, 1.29);
+        margin-left: 30%;
+    }
+    .color ul li div:last-child{
+        margin-left: 50%;
+        margin-top: 0.05rem;
+        transform: translateX(-50%);
+        font-size: 0.1rem;
+        text-align: center;
+    }
+
+    /*尺寸大小*/
+    .size{
+        position: relative;
+        top:0.45rem;
+    }
+    .size .content,.product .content{
+        width: 3.51rem;
+        margin:  0 0.12rem;
+        border: 1px solid #000;
+        padding: 0.1rem 0.15rem;
+        box-sizing: border-box;
+        background: #ececec;
+    }
+    .size .content div,.product .content div{
+        background: #fff;
+    }
+    .size .content img, .product .content img{
+        width: 100%;
+        height: 100%;
+    }
+
+    /*商品细节*/
+    .product{
+        position: relative;
+        top:0.65rem;
+    }
+    .desc1{
+        width: 100%;
+        padding: 0.1rem 0.225rem;
+        font-size: 0.12rem;
+    }
+    .desc1 div{
+        width: 100%;
+        height: 0.01rem;
+        background: #6B6B6B;
+        margin: 0.05rem 0;
+    }
+
+    /*客户评价*/
+    .client{
+        position: relative;
+        top:0.7rem;
+    }
+    .client .content{
+        width: 100%;
+        padding: 0.1rem 0.225rem;
+        font-size: 0.12rem;
+    }
+    .client .content ul li{
+        display: flex;
+        align-items: center;
+    }
+    .client .content ul li>div{
+        width: 1.08rem;
+        height: 0.1rem;
+        background: #FFC732;
+        margin: 0 0.12rem;
+    }
+    .client .content ul li:nth-child(2)>div{
+        width: 0.77rem;
+        height: 0.1rem;
+        background: #FFC732;
+        margin: 0 0.12rem;
+    }
+    .client .content ul li:nth-child(3)>div{
+        width: 0.425rem;
+        height: 0.1rem;
+        background: #FF7D33;
+        margin: 0 0.12rem;
+    }
+    .client .content ul li:nth-child(4)>div{
+        width: 0.18rem;
+        height: 0.1rem;
+        background: #FF2A2B;
+        margin: 0 0.12rem;
+    }
+
+    .client .content ul li>span{
+        font-family: iconfont;
+        color: #FFC732;
+    }
+
+    /*数量选择*/
+    .number{
+        position: relative;
+        top:0.8rem;
+    }
+    .number .content{
+        display: flex;
+        padding: 0.1rem 0.225rem;
+        font-size: 0.12rem;
+    }
+    .number .l_content{
+        display: flex;
+        width: 70%;
+    }
+    .number .l_content div{
+        width: 0.25rem;
+        height: 0.25rem;
+        border-radius: 50%;
+    }
+    .number .l_content input{
+        width: 0.665rem;
+        height: 0.24rem;
+        border-radius: 0.4rem;
+        border: 1px solid #6B6B6B;
+        text-align: center;
+        font-size: 0.16rem;
+        margin: 0 0.1rem;
+    }
+    .number .r_content{
+        width: 30%;
+        font-size: 0.14rem;
+        color: #000;
+    }
+    .kong{
+        width: 100%;
+        height: 1.4rem;
+    }
+    
+    /*底部*/
+    footer{
+        width: 100%;
+        height: 0.5rem;
+        background: url("../../static/img/lrb_30.png");
+        position: fixed;
+        bottom:0;
+        display: flex;
+    }
+    footer>a{
+        width: 50%;
+        display: flex;
+    }
+</style>
