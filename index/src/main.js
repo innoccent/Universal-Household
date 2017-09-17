@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import rem from './assets/js/rem';
+import rem from './assets/js/rem'
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 
