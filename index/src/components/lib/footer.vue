@@ -8,7 +8,7 @@
                 </a>
             </li>
             <li @click="up(2)">
-                <a href="">
+                <a href="#/classify">
                     <img src="/static/img/htbimg/class_06.png" alt="" :class="{'up':active==2}">
                     <p :class="{'active':active==2}">分类</p>
                 </a>

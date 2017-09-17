@@ -88,11 +88,12 @@
         },
         methods:{
             search:function () {
-                this.isSearch=!this.isSearch;
+                this.isSearch = !this.isSearch;
+            }
         },
-        mounted(){
-            if(!localStorage.uid){
-                location.href='#/login';
+        mounted() {
+            if (!localStorage.uid) {
+                location.href = '#/login';
             }
         }
     }
