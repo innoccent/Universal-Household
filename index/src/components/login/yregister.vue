@@ -103,10 +103,8 @@
                 var result = false;
                 switch (kind){
                     case 'account':
-                        if(this.form.account.length<8){
+                        if(this.form.account.length<2){
                             result=true;
-                        }else if(this.form.account.length>2){
-                            result=false;
                         }
                         break;
                     case 'phone':
@@ -115,7 +113,7 @@
                         }
                         break;
                     case 'pass':
-                        if(this.form.pass.length<16){
+                        if(this.form.pass.length<6){
                             result=true;
                         }
                         break;

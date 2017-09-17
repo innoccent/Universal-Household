@@ -215,6 +215,7 @@
         margin:auto;
         top:2.52rem;
         z-index:1;
+        border-radius: .02rem;
         background:url("/static/img/ybl2_03_03.png");
     }
     .content{
