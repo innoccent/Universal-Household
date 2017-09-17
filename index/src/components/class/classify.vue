@@ -9,11 +9,13 @@
             </div>
         </a>
         <classcontent></classcontent>
+        <footer_ active="2"></footer_>
     </div>
 </template>
 
 <script>
     import classcontent from './classcontent.vue'
+    import footer_ from '../lib/footer.vue'
     export default {
         data() {
             return {
@@ -25,6 +27,7 @@
         },
         components:{
             classcontent:classcontent,
+            footer_:footer_
         }
     }
 </script>

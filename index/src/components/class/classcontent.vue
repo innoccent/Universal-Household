@@ -286,7 +286,7 @@
         background-size: cover;
     }
     .content{
-        padding:.12rem .12rem;
+        padding:.12rem .12rem 0.63rem;
     }
     .title{
         font-size:.14rem;

@@ -31,14 +31,17 @@
 <script>
     export default {
         name:'footer',
-        data(){
-          return{
-              active:1,
-          }
+        props:{
+          active:String
         },
+//        data(){
+//          return{
+//              active:1,
+//          }
+//        },
         methods:{
             up:function (n) {
-                this.active=n;
+//                this.active=n;
             }
         }
     }

@@ -60,7 +60,7 @@
             </div>
         </div>
         <mylike></mylike>
-        <myfooter></myfooter>
+        <myfooter active="1"></myfooter>
     </div>
 </template>
 <script>

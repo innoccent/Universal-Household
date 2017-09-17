@@ -22,7 +22,7 @@
             </a>
         </div>
         <mode_list></mode_list>
-        <mode_footer></mode_footer>
+        <mode_footer active="3"></mode_footer>
     </div>
 </template>
 <script>

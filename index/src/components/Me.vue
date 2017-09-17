@@ -35,7 +35,7 @@
             </div>
             <div class="line"></div>
             <ul class="order-1">
-                <li>
+                <li @click="getOrder()">
                     <div class="order-logo1">
                         <span class="iconfont icon-dingdan "></span>
                     </div>
@@ -121,7 +121,7 @@
 
             </ul>
         </div>
-        <footer_></footer_>
+        <footer_ active="4"></footer_>
     </div>
 </template>
 <script>
