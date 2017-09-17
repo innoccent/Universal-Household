@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import GoodsDetails from '../components/GoodsDetails.vue'
+import OnlinePay from '../components/OnlinePay.vue'
+import w_guide from '../components/guild/w_guide.vue'
 import Htbhome from '@/components/Htbhome'
 import HtbActivity from '../components/HtbActivity'
 import w_guide from '../components/guild/w_guide'
@@ -14,10 +17,18 @@ import  Address from '../components/me/Address'
 import Me  from '../components/Me'
 import GoodsDetails from '../components/GoodsDetails.vue'
 import OnlinePay from '../components/OnlinePay.vue'
+import Order from '../components/Order'
+
 Vue.use(Router)
 
 export default new Router({
-    routes: [
+  routes: [
+    {
+        path: '/',
+        name: 'guide',
+        component: w_guide
+    },
+
         {
             path: '/home',
             name: 'Htbhome',
@@ -27,10 +38,6 @@ export default new Router({
             path:'/htbactivity',
             name:'htbactivity',
             component:HtbActivity
-        },{
-            path:'/',
-            name: 'guide',
-            component: w_guide
         },
         {
             path: '/mode',
@@ -52,6 +59,11 @@ export default new Router({
             name: 'me',
             component:Me
         },
+        {
+            path: '/order',
+            name: 'order',
+            component: Order
+        },
       {
           path: '/goodsdetails',
           name: 'goodsdetails',
@@ -60,8 +72,8 @@ export default new Router({
       {
           path: '/onlinepay',
           name: 'onlinepay',
-          component: OnlinePay
-      },
+          component:OnlinePay
+    },
       {
         path:'/login',
         name:'login',
@@ -77,15 +89,10 @@ export default new Router({
           name:'yregister',
           component:yregister
       },
-        {
-        path:'/w',
-        name:'w',
-        component:p_guide
-      },
       {
           path:'/classify',
           name:'classify',
           component:classify
-      }
+        }
   ]
 })

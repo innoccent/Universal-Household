@@ -1,5 +1,5 @@
 <template>
-    <a href="">
+    <a href="#/home">
         <div class="modeheader">
             <div class="center_top">
                 <h1>定制设计</h1>

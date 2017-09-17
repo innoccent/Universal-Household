@@ -99,39 +99,39 @@
                         </li>
                         <li>
                             <div></div>
-                            <div><span>银白</span></div>
+                            <div><span>宝蓝</span></div>
                         </li>
                         <li>
                             <div></div>
-                            <div><span>银白</span></div>
+                            <div><span>雪青</span></div>
                         </li>
                         <li>
                             <div></div>
-                            <div><span>银白</span></div>
+                            <div><span>樱草色</span></div>
                         </li>
                         <li>
                             <div></div>
-                            <div><span>银白</span></div>
+                            <div><span>洋红</span></div>
                         </li>
                         <li>
                             <div></div>
-                            <div><span>银白</span></div>
+                            <div><span>黑色</span></div>
                         </li>
                         <li>
                             <div></div>
-                            <div><span>银白</span></div>
+                            <div><span>玄青</span></div>
                         </li>
                         <li>
                             <div></div>
-                            <div><span>银白</span></div>
+                            <div><span>紫颤</span></div>
                         </li>
                         <li>
                             <div></div>
-                            <div><span>银白</span></div>
+                            <div><span>红色</span></div>
                         </li>
                         <li>
                             <div></div>
-                            <div><span>银白</span></div>
+                            <div><span>青色</span></div>
                         </li>
                     </ul>
                 </div>
@@ -438,24 +438,53 @@
         width: 20%;
         text-align: center;
         margin-bottom: 0.1rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
     }
     .color ul li div:first-child{
         width: 0.3rem;
         height: 0.3rem;
-        background: #9d9d9d;
+        background: #E9E7EF;
         border-radius: 50%;
-        margin-left: 50%;
-        transform: translateX(-50%);
+    }
+    .color ul li:nth-child(2) div:first-child{
+        background: #4B5CC4;
+    }
+    .color ul li:nth-child(3) div:first-child{
+        background: #B0A4E3;
+    }
+    .color ul li:nth-child(4) div:first-child{
+        background: #EAFF56;
+    }
+    .color ul li:nth-child(5) div:first-child{
+        background: #FF4777;
+    }
+    .color ul li:nth-child(6) div:first-child{
+        background: #000;
+    }
+    .color ul li:nth-child(7) div:first-child{
+        background: #3D3B4F;
+    }
+    .color ul li:nth-child(8) div:first-child{
+        background: #4C221B;
+    }
+    .color ul li:nth-child(9) div:first-child{
+        background: #FF0000;
+    }
+    .color ul li:nth-child(10) div:first-child{
+        background: #00E09E;
     }
     .color ul li:hover div:first-child{
         transform: scale(1.2);
+        transform-origin:inherit;
         transition: transform  0.3s cubic-bezier(0, -0.19, 0.48, 1.29);
-        margin-left: 30%;
+        /*margin-left: 20%;*/
     }
     .color ul li div:last-child{
-        margin-left: 50%;
         margin-top: 0.05rem;
-        transform: translateX(-50%);
         font-size: 0.1rem;
         text-align: center;
     }

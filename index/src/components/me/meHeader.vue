@@ -1,10 +1,11 @@
 <template>
     <div class="meheader">
-        <a href="">
+        <slot></slot>
+        <router-link :to="{name:name}">
             <div class="ceter-left">
                 <img src="/static/img/nxl_jiangtou_left.png" alt="">
             </div>
-        </a>
+        </router-link>
         <div class="center-content" v-if="$route.name=='medata'">
             <h1 >个人资料</h1>
             <h2>PERSONAL DATA</h2>
@@ -13,12 +14,18 @@
             <h1 >收货地址</h1>
             <h2>ADDRESS</h2>
         </div>
+        <div class="center-content" v-if="$route.name=='order'">
+            <h1 >我的订单</h1>
+            <h2>MY ORDER</h2>
+        </div>
     </div>
 </template>
 <script>
     export default{
         data(){
-            return {}
+            return {
+                name:this.$route.query.pre
+            }
         }
     }
 </script>
