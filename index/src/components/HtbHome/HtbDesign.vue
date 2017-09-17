@@ -3,7 +3,7 @@
         <div class="des-main">
             <div class="des-main-con">
                 <div class="des-main-img">
-                    <img src="../../../static/img/htbimg/908694c960c8b04d2b97808bc4bbe83f.jpg" alt="">
+                    <img src="/static/img/htbimg/908694c960c8b04d2b97808bc4bbe83f.jpg" alt="">
                 </div>
                 <div class="des-main-detail">
                     <p>大师级作品设计上线</p>
@@ -15,7 +15,7 @@
             </div>
             <div class="des-main-con">
                 <div class="des-main-img">
-                    <img src="../../../static/img/htbimg/4787def177c3927a5436471ca5ddd3c4.jpg" alt="">
+                    <img src="/static/img/htbimg/4787def177c3927a5436471ca5ddd3c4.jpg" alt="">
                 </div>
                 <div class="des-main-detail">
                     <p>大师级作品设计上线</p>

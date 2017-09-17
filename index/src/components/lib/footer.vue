@@ -2,26 +2,26 @@
     <div class="myfooter">
         <ul>
             <li @click="up(1)">
-                <a href="/">
-                    <img src="../../../static/img/htbimg/home_03.png" alt=""  :class="{'up':active==1}">
+                <a href="#/home">
+                    <img src="/static/img/htbimg/home_03.png" alt=""  :class="{'up':active==1}">
                     <p :class="{'active':active==1}">首页</p>
                 </a>
             </li>
             <li @click="up(2)">
-                <a href="#/htbactivity">
-                    <img src="../../../static/img/htbimg/class_06.png" alt="" :class="{'up':active==2}">
+                <a href="">
+                    <img src="/static/img/htbimg/class_06.png" alt="" :class="{'up':active==2}">
                     <p :class="{'active':active==2}">分类</p>
                 </a>
             </li>
             <li @click="up(3)">
                 <a href="javascript:;">
-                    <img src="../../../static/img/htbimg/design_08.png" alt="" :class="{'up':active==3}">
+                    <img src="/static/img/htbimg/design_08.png" alt="" :class="{'up':active==3}">
                     <p :class="{'active':active==3}">定制</p>
                 </a>
             </li>
             <li @click="up(4)">
                 <a href="javascript:;">
-                    <img src="../../../static/img/htbimg/my_10.png" alt="" :class="{'up':active==4}">
+                    <img src="/static/img/htbimg/my_10.png" alt="" :class="{'up':active==4}">
                     <p :class="{'active':active==4}">我的</p>
                 </a>
             </li>
@@ -33,7 +33,7 @@
         name:'footer',
         data(){
           return{
-              active:1,
+              active:null,
           }
         },
         methods:{

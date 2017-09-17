@@ -3,7 +3,7 @@
         <ul class="h-home-like-main">
             <li>
                 <div class="h-like-img">
-                    <img src="../../../static/img/htbimg/e9097926368257.56354846bbfc6.jpg" alt="">
+                    <img src="/static/img/htbimg/e9097926368257.56354846bbfc6.jpg" alt="">
                 </div>
                 <div class="h-like-det">
                     <ul>
@@ -30,7 +30,7 @@
             </li>
             <li>
                 <div class="h-like-img">
-                    <img src="../../../static/img/htbimg/a50d5326368257.56354808a17bb.jpg" alt="">
+                    <img src="/static/img/htbimg/a50d5326368257.56354808a17bb.jpg" alt="">
                 </div>
                 <div class="h-like-det">
                     <ul>
@@ -80,7 +80,7 @@
     .h-home-like-main>li{
         width: 100%;
         height: 1.22rem;
-        background:url("../../../static/img/htbimg/lickbg_03.png") no-repeat;
+        background:url("/static/img/htbimg/lickbg_03.png") no-repeat;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -125,12 +125,12 @@
         padding-left: 0.13rem;
     }
     .like-more div:nth-child(1){
-        background:url("../../../static/img/htbimg/xin_07.png")left center no-repeat;
+        background:url("/static/img/htbimg/xin_07.png")left center no-repeat;
     }
     .like-more div:nth-child(2){
-        background:url("../../../static/img/htbimg/com_07.png")left center no-repeat;
+        background:url("/static/img/htbimg/com_07.png")left center no-repeat;
     }
     .like-more div:nth-child(3){
-        background:url("../../../static/img/htbimg/shop_09.png")left center no-repeat;
+        background:url("/static/img/htbimg/shop_09.png")left center no-repeat;
     }
 </style>

@@ -5,7 +5,7 @@
             <div class="right">
                 <div>
                     <div class="img"><img src="/static/img/lrb_03.png" alt=""></div>
-                    <h2>商品详情</h2>
+                    <h2>{{head}}</h2>
                     <div class="img"><img src="/static/img/lrb_05.png" alt=""></div>
                 </div>
                 <span class="word">Goods details</span>
@@ -14,7 +14,10 @@
     </header>
 </template>
 <script>
-
+    export default {
+        name:'header',
+        props:['head'],
+    }
 </script>
 <style scoped>
     header{

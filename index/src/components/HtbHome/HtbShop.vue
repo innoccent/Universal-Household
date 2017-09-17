@@ -3,7 +3,7 @@
         <ul class="h-shop-main">
             <li>
                 <div class="h-shop-img">
-                    <img src="../../../static/img/htbimg/abbe3638582475.5767b925bf8fd.jpg" alt="">
+                    <img src="/static/img/htbimg/abbe3638582475.5767b925bf8fd.jpg" alt="">
                 </div>
                 <div class="h-shop-tit">
                     <div>
@@ -19,9 +19,9 @@
                         </div>
                         <div class="h-home-shop-det">
                             <ul>
-                                <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
+                                <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
                                 <li>29</li>
                             </ul>
                         </div>
@@ -30,7 +30,7 @@
             </li>
             <li>
                 <div class="h-shop-img">
-                    <img src="../../../static/img/htbimg/21825d26247911.563536e915db4.jpg" alt="">
+                    <img src="/static/img/htbimg/21825d26247911.563536e915db4.jpg" alt="">
                 </div>
                 <div class="h-shop-tit">
                     <div>
@@ -46,9 +46,9 @@
                         </div>
                         <div class="h-home-shop-det">
                             <ul>
-                                <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
+                                <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
                                 <li>29</li>
                             </ul>
                         </div>
@@ -57,7 +57,7 @@
             </li>
             <li>
                 <div class="h-shop-img">
-                    <img src="../../../static/img/htbimg/abbe3638582475.5767b925bf8fd.jpg" alt="">
+                    <img src="/static/img/htbimg/abbe3638582475.5767b925bf8fd.jpg" alt="">
                 </div>
                 <div class="h-shop-tit">
                     <div>
@@ -73,9 +73,9 @@
                         </div>
                         <div class="h-home-shop-det">
                             <ul>
-                                <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
+                                <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
                                 <li>29</li>
                             </ul>
                         </div>
@@ -150,12 +150,12 @@
     }
     .h-shop-tit>section>div.h-home-shop-money{
         padding-left: 0.14rem;
-        background: url("../../../static/img/htbimg/money-1_03.png")left center no-repeat;
+        background: url("/static/img/htbimg/money-1_03.png")left center no-repeat;
         margin-right: 0.1rem;
     }
     .h-shop-tit>section>div.h-home-shop-comment{
         padding-left: 0.14rem;
-        background: url("../../../static/img/htbimg/comment_05.png")left center no-repeat;
+        background: url("/static/img/htbimg/comment_05.png")left center no-repeat;
     }
     .h-home-shop-det>ul{
         display: flex;

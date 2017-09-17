@@ -6,23 +6,24 @@
             </div>
             <div class="h-home-title">
                 <p>鱼设计</p>
-                <img src="../../static/img/htbimg/t-bg-1_06.png" alt="">
+                <img src="/static/img/htbimg/t-bg-1_06.png" alt="">
             </div>
             <div class="h-home-message">
                 <div></div>
             </div>
         </header>
         <div class="h-home-search">
-            <div class="h-home-sea">
+            <div class="h-home-sea" @click="search">
                 <input type="text" value="商品名/设计师/分类...">
             </div>
             <div class="h-home-but">
                 <p>Search</p>
             </div>
         </div>
+        <mysearch v-show="isSearch"></mysearch>
         <div class="h-home-banner">
             <ul class="h-home-ban-img">
-                <li><img src="../../static/img/htbimg/1ae89826247911.563536dc721cd.jpg" alt=""></li>
+                <li><img src="/static/img/htbimg/1ae89826247911.563536dc721cd.jpg" alt=""></li>
             </ul>
             <ul class="h-home-ban-cir">
                 <li></li>
@@ -68,15 +69,27 @@
     import design from  './HtbHome/HtbDesign.vue';
     import lately from './HtbHome/HtbLately.vue';
     import like from './HtbHome/Htblike.vue';
-    import footer from './lib/footer.vue'
+    import footer from './lib/footer.vue';
+    import search from './HtbHome/Search.vue'
     export default {
         name:'htbhome',
+        data(){
+          return{
+              isSearch:false,
+          }
+        },
         components:{
             'myshop':shop,
             'mydesign':design,
             'mylately':lately,
             'mylike':like,
-            'myfooter':footer
+            'myfooter':footer,
+            'mysearch':search
+        },
+        methods:{
+            search:function () {
+                this.isSearch=!this.isSearch;
+            }
         }
     }
 </script>
@@ -119,7 +132,7 @@
     .h-home-title p {
         color: #fff;
         line-height: 0.6rem;
-        background: url("../../static/img/htbimg/home01_03.png") 50% 80%/40% no-repeat;
+        background: url("/static/img/htbimg/home01_03.png") 50% 80%/40% no-repeat;
         vertical-align: middle;
         position: relative;
         z-index: 50;
@@ -147,7 +160,7 @@
     }
     
     .h-home-address > div {
-        background: url(../../static/img/htbimg/address-1_03.png) center center/contain no-repeat;
+        background: url(/static/img/htbimg/address-1_03.png) center center/contain no-repeat;
         display: flex;
         width: 0.16rem;
         height: 0.18rem;
@@ -155,7 +168,7 @@
     }
 
     .h-home-message > div {
-        background: url("../../static/img/htbimg/mess_05.png") center center/contain no-repeat;
+        background: url("/static/img/htbimg/mess_05.png") center center/contain no-repeat;
         display: flex;
         width: 0.16rem;
         height: 0.18rem;

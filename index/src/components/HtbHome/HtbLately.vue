@@ -3,10 +3,10 @@
         <ul class="lately-main">
             <li>
                 <div class="late-con-img">
-                    <img src="../../../static/img/htbimg/65721726247911.563536def341c.jpg" alt="">
+                    <img src="/static/img/htbimg/65721726247911.563536def341c.jpg" alt="">
                     <div class="late-like">
-                        <img src="../../../static/img/htbimg/like_03.png" alt="" v-show="true">
-                        <img src="../../../static/img/htbimg/dislike_11.png" alt="" v-show="false">
+                        <img src="/static/img/htbimg/like_03.png" alt="" v-show="true">
+                        <img src="/static/img/htbimg/dislike_11.png" alt="" v-show="false">
                     </div>
                 </div>
                 <div class="late-con-det">
@@ -29,9 +29,9 @@
                             </div>
                             <div class="late-people">
                                 <ul>
-                                    <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                    <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                    <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
+                                    <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                    <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                    <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
                                     <li>...</li>
                                 </ul>
                             </div>
@@ -41,10 +41,10 @@
             </li>
             <li>
                 <div class="late-con-img">
-                    <img src="../../../static/img/htbimg/247f7b26247911.563536f6b677d.jpg" alt="">
+                    <img src="/static/img/htbimg/247f7b26247911.563536f6b677d.jpg" alt="">
                     <div class="late-like">
-                        <img src="../../../static/img/htbimg/like_03.png" alt="" v-show="false">
-                        <img src="../../../static/img/htbimg/dislike_11.png" alt="" v-show="true">
+                        <img src="/static/img/htbimg/like_03.png" alt="" v-show="false">
+                        <img src="/static/img/htbimg/dislike_11.png" alt="" v-show="true">
                     </div>
                 </div>
                 <div class="late-con-det">
@@ -67,9 +67,9 @@
                             </div>
                             <div class="late-people">
                                 <ul>
-                                    <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                    <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
-                                    <li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>
+                                    <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                    <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
+                                    <li><img src="/static/img/htbimg/det-1_03.png" alt=""></li>
                                     <li>...</li>
                                 </ul>
                             </div>
@@ -141,13 +141,13 @@
         padding-left: 0.13rem;
     }
     .late-more div:nth-child(1){
-        background:url("../../../static/img/htbimg/xin_07.png")left center no-repeat;
+        background:url("/static/img/htbimg/xin_07.png")left center no-repeat;
     }
     .late-more div:nth-child(2){
-         background:url("../../../static/img/htbimg/com_07.png")left center no-repeat;
+         background:url("/static/img/htbimg/com_07.png")left center no-repeat;
      }
     .late-more div:nth-child(3){
-        background:url("../../../static/img/htbimg/shop_09.png")left center no-repeat;
+        background:url("/static/img/htbimg/shop_09.png")left center no-repeat;
     }
     .late-people>ul{
         width: 100%;
