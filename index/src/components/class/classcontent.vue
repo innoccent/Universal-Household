@@ -160,53 +160,53 @@
         <div class="tuijian" v-else>
             <div class="content3">
                 <div class="title">
-                    <span>收</span>
+                    <span>精</span>
                     <span class="shuline"></span>
-                    <span>纳</span>
+                    <span>选</span>
                 </div>
                 <div class="engword">
-                    <span>TO </span>RECEIVE A
+                    <span>TO </span>SELECT
                 </div>
                 <div class="main4">
                     <ul class="enter-content">
-                        <a href="">
-                        <li>
-                            <div class="enter-pic1">
-                                <img src="/static/img/yb2_37.png" alt="">
-                                <div class="enter-main">
-                                    <ul>
-                                        <li class="late-con-title">
-                                            <div>梳妆收纳台</div>
-                                        </li>
-                                        <li class="late-text">
-                                            <p>Receive dressing table</p>
-                                        </li>
-                                        <li class="late-more">
-                                            <div>
-                                                <span>3245</span>
-                                            </div>
-                                            <div>
-                                                <span>2568</span>
-                                            </div>
-                                            <div>
-                                                <span>5210</span>
-                                            </div>
-                                            <div class="late-people">
-                                                <ul>
-                                                    <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
-                                                    <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
-                                                    <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
-                                                    <!--<li>...</li>-->
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    </ul>
+                        <router-link :to="{name:'goodsdetails',query:{gid:v.id,name:'classify'}}" v-for="v in position" :key="v.id">
+                            <li>
+                                <div class="enter-pic1">
+                                    <img :src="v.goods_pic" alt="">
+                                    <div class="enter-main">
+                                        <ul>
+                                            <li class="late-con-title">
+                                                <div>{{v.goods_name}}</div>
+                                            </li>
+                                            <li class="late-text">
+                                                <p>{{v.goods_ename}}</p>
+                                            </li>
+                                            <li class="late-more">
+                                                <div>
+                                                    <span>3245</span>
+                                                </div>
+                                                <div>
+                                                    <span>2568</span>
+                                                </div>
+                                                <div>
+                                                    <span>5210</span>
+                                                </div>
+                                                <div class="late-people">
+                                                    <ul>
+                                                        <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
+                                                        <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
+                                                        <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
+                                                        <!--<li>...</li>-->
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="enter-pic2"></div>
-                            <div class="enter-pic3"></div>
-                        </li>
-                        </a>
+                                <div class="enter-pic2"></div>
+                                <div class="enter-pic3"></div>
+                            </li>
+                        </router-link>
                     </ul>
                 </div>
             </div>
@@ -220,7 +220,7 @@
             return {
                 active:'1',
                 goods:[],
-                categories:[]
+                categories:[],
             }
         },
         methods: {
@@ -236,6 +236,9 @@
                   arr.push(curr);
               })
               return arr;
+          },
+          position:function () {
+              return this.goods.filter(v=>v.is_pos==1)
           }
         },
         mounted(){

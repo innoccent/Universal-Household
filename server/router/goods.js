@@ -12,6 +12,7 @@ const con = mysql.createConnection({
     database:'household'
 });
 
+//获取分类
 router.get('/get_categories',(req,res)=>{
     let sql = "select * from categories";
     con.query(sql,(err,result)=>{
@@ -23,6 +24,7 @@ router.get('/get_categories',(req,res)=>{
     })
 })
 
+//获取所有家具
 router.get('/get_goods',(req,res)=>{
     let sql = "select * from goods";
     con.query(sql,(err,result)=>{
@@ -33,5 +35,7 @@ router.get('/get_goods',(req,res)=>{
         }
     })
 })
+
+
 
 module.exports=router;

@@ -33,20 +33,38 @@ VALUES
 DROP TABLE IF EXISTS goods;
 CREATE TABLE goods(
   id INT (10) PRIMARY KEY auto_increment,
+  bid VARCHAR (255),
   cid VARCHAR (255),
   is_pos VARCHAR (255) DEFAULT '0',
   goods_name VARCHAR (255),
   goods_ename VARCHAR (255),
   goods_pic VARCHAR (255),
-  goods_price VARCHAR (255)
+  goods_price VARCHAR (255),
+  goods_desc VARCHAR (255),
+  goods_pattern VARCHAR (255) DEFAULT 'A-001'
 )DEFAULT charset=utf8;
 
 INSERT INTO goods
-(cid, goods_name, goods_ename, goods_pic, goods_price)
+(bid,cid,is_pos,goods_name, goods_ename, goods_pic, goods_price,goods_desc)
 VALUES
-('1','雷士照明灯','LEISHI LIGHTING','/static/img/yb2_08.png','1999'),
-('1','火山小夜灯','VOLCANO SMAL','/static/img/yb2_03.png','1899'),
-('1','现代简约灯','NOW CONTRACTED','/static/img/yb2_05.png','1799'),
-('2','莱尔诗丹','LYLE POETRY DAN','/static/img/yb2_21.png','1999'),
-('2','多维尚书架','MULTIDIMENSIONAL HISTORY','/static/img/yb2_23.png','2999'),
-('3','梳妆收纳台','Receive dressing table','/static/img/yb2_37.png','3999');
+('1','1','0','雷士照明灯','LEISHI LIGHTING','/static/img/yb2_08.png','1999','柔和的灯光，闲逸的夜晚'),
+('4','1','0','火山小夜灯','VOLCANO SMAL','/static/img/yb2_03.png','1899','哪里黑哪里装'),
+('2','1','0','现代简约灯','NOW CONTRACT','/static/img/yb2_05.png','1799','现代简约灯!满足每个客户独特装饰的需要!'),
+('3','2','0','莱尔诗丹','LYLE POETRY DAN','/static/img/yb2_21.png','1999','打造干净舒适生活'),
+('3','2','0','多维尚书架','MULTIDIMENSIONAL HISTORY','/static/img/yb2_23.png','2999','一份简约，一份闲逸，尽享舒适书海'),
+('2','3','1','梳妆收纳台','Receive dressing table','/static/img/yb2_37.png','3999','简约大方，每一天都迎来魅力无限的自己，全新的你！'),
+('2','3','1','简约风茶几','centracten tea table','/static/img/nxl_chaji_1.png','3999','喜欢一片简约，舒适一片生活！');
+
+DROP TABLE IF EXISTS brand;
+create table brand (
+  id INT (10) PRIMARY KEY auto_increment,
+  brand_name VARCHAR (255)
+)DEFAULT charset=utf8;
+
+INSERT INTO brand
+(brand_name)
+VALUES
+('雷士'),
+('曼诗菲尔'),
+('莱尔诗丹'),
+('火山');
