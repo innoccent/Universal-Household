@@ -5,19 +5,20 @@
             <div class="center">
                 <div class="center1">
                     <div class="img">
-                        <img src="/static/img/lrb_10.png" alt="">
+                        <img :src="goodsinfo.s_pic" alt="">
                     </div>
                     <div class="title">
                         <div class="t_left">
-                            <h2>欧式简约茶几</h2>
-                            <span>EUROPEAN CONTSLSENT TABLE</span>
+                            <h2>{{goodsinfo.goods_name}}</h2>
+                            <span style="text-transform: uppercase">{{goodsinfo.goods_ename}}</span>
                         </div>
                         <div class="t_right">
                             <span>￥</span>
-                            <span class="price">999.00</span>
+                            <span class="price">{{goodsinfo.goods_price}}</span>
                         </div>
                     </div>
-                    <p>每一天都肆意的生活在自己塑造的空间里，欣赏艺术精品般的家具，将生活的感动化为细致的品味</p>
+                    <!--<p>每一天都肆意的生活在自己塑造的空间里，欣赏艺术精品般的家具，将生活的感动化为细致的品味</p>-->
+                    <p>{{goodsinfo.goods_desc}}</p>
                 </div>
                 <div class="center2"></div>
                 <div class="center3"></div>
@@ -37,23 +38,23 @@
                         <ul>
                             <li>
                                 <div class="list"><div></div></div>
-                                <div class="list_word">品牌：曼斯菲尔</div>
+                                <div class="list_word">品牌：{{goodsinfo.brand_name}}</div>
                             </li>
                             <li>
                                 <div class="list"><div></div></div>
-                                <div class="list_word">型号：A-002</div>
+                                <div class="list_word">型号：{{goodsinfo.goods_pattern}}</div>
                             </li>
                             <li>
                                 <div class="list"><div></div></div>
-                                <div class="list_word">设计元素：做旧 其他 原木 异性 拼接 金属</div>
+                                <div class="list_word">设计元素：{{goodsinfo.goods_elements}}</div>
                             </li>
                             <li>
                                 <div class="list"><div></div></div>
-                                <div class="list_word">形状：长方形</div>
+                                <div class="list_word">形状：{{goodsinfo.s_shape}}</div>
                             </li>
                             <li>
                                 <div class="list"><div></div></div>
-                                <div class="list_word">产地：上海</div>
+                                <div class="list_word">产地：{{goodsinfo.brand_area}}</div>
                             </li>
                         </ul>
                         <ul>
@@ -63,19 +64,19 @@
                             </li>
                             <li>
                                 <div class="list list1"><div></div></div>
-                                <div class="list_word">材质：实木</div>
+                                <div class="list_word">材质：{{goodsinfo.s_material}}</div>
                             </li>
                             <li>
                                 <div class="list list1"><div></div></div>
-                                <div class="list_word">家具结构：框架结构</div>
+                                <div class="list_word">家具结构：{{goodsinfo.s_structure}}</div>
                             </li>
                             <li>
                                 <div class="list list1"><div></div></div>
-                                <div class="list_word">尺寸：142*67*75木板：5cm</div>
+                                <div class="list_word">尺寸：{{goodsinfo.s_size}}</div>
                             </li>
                             <li>
                                 <div class="list list1"><div></div></div>
-                                <div class="list_word">风格：欧式复古</div>
+                                <div class="list_word">风格：{{goodsinfo.s_style}}</div>
                             </li>
                         </ul>
                     </div>
@@ -93,43 +94,43 @@
                 </div>
                 <div class="content">
                     <ul>
-                        <li>
+                        <li @click="getColor('white')" >
                             <div></div>
                             <div><span>银白</span></div>
                         </li>
-                        <li>
+                        <li @click="getColor('blue')">
                             <div></div>
                             <div><span>宝蓝</span></div>
                         </li>
-                        <li>
+                        <li @click="getColor('#B0A4E3')">
                             <div></div>
                             <div><span>雪青</span></div>
                         </li>
-                        <li>
+                        <li @click="getColor('#EAFF56')">
                             <div></div>
                             <div><span>樱草色</span></div>
                         </li>
-                        <li>
+                        <li @click="getColor('#FF4777')">
                             <div></div>
                             <div><span>洋红</span></div>
                         </li>
-                        <li>
+                        <li @click="getColor('black')">
                             <div></div>
                             <div><span>黑色</span></div>
                         </li>
-                        <li>
+                        <li @click="getColor('#3D3B4F')">
                             <div></div>
                             <div><span>玄青</span></div>
                         </li>
-                        <li>
+                        <li @click="getColor('#4C221B')">
                             <div></div>
                             <div><span>紫颤</span></div>
                         </li>
-                        <li>
+                        <li @click="getColor('red')">
                             <div></div>
                             <div><span>红色</span></div>
                         </li>
-                        <li>
+                        <li @click="getColor('#00E09E')">
                             <div></div>
                             <div><span>青色</span></div>
                         </li>
@@ -236,27 +237,161 @@
                 </div>
                 <div class="content">
                     <div class="l_content">
-                        <div><img src="../../static/img/lrb_23.png" alt=""></div>
-                        <input type="text" value="0">
-                        <div><img src="../../static/img/lrb_25.png" alt=""></div>
+                        <div @click="del"><img src="../../static/img/lrb_23.png" alt=""></div>
+                        <input type="text" v-model="num">
+                        <div @click="add"><img src="../../static/img/lrb_25.png" alt=""></div>
                     </div>
                     <div class="r_content">
-                        总计：<span>999.00</span>
+                        总计：<span>￥{{total}}</span>
                     </div>
                 </div>
             </div>
             <div class="kong"></div>
             <footer>
-                <a href=""></a>
-                <a href=""></a>
+                <a href="javascript:;" @click="getGoods"></a>
+                <a href="javascript:;" @click="getOrder"></a>
             </footer>
+        <div class="alert" :class="{scale:active==true}">
+            <div class="alertcon">
+                <div class="alertimg" v-if="alertbut==true"><img src="/static/img/ybl3_02_03.png" alt=""></div>
+                <div class="alertimg" v-if="alertbut2==true"><img src="/static/img/ybl3_03.png" alt=""></div>
+                <div class="alerttext">
+                    <span>{{message}}</span>
+                    <span v-if="status">congratulation small Lord</span>
+                    <span v-else>wrong info from Lord</span>
+                </div>
+                <div class="alertbut" @click="enter" v-if="alertbut==true">
+                    <span>继续选购</span>
+                    <span>CONTINUE SHOPING</span>
+                </div>
+                <div class="alertbut2" v-if="alertbut2==true">
+                    <div class="pay">
+                        <div class="trueimg">
+                            <img src="/static/img/ybldan_03.png" alt="">
+                        </div>
+                        <div class="truetext" @click="reset">
+                            <h4>再试一次</h4>
+                            <span>MORE TIME</span>
+                        </div>
+
+                    </div>
+                    <div @click="reset">
+                        <h4>检查网络</h4>
+                        <span>THE NETWORK</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </template>
 <script>
     import Headers from './lib/Header.vue'
     export default{
         name:'goodsdetails',
-        components:{ Headers }
+        data(){
+            return{
+                uid:localStorage.uid,
+                goodsinfo:{},
+                color: 'white',
+                num:0,
+                active:false,
+                alertbut:true,
+                alertbut2:false,
+                message:'恭喜小主成功选购',
+                status:true,
+            }
+        },
+        methods:{
+          getOrder(){
+              if(this.num==0){
+                  this.alertbut=false;
+                  this.alertbut2=true;
+                  this.active=true;
+                  this.message='小主尚未选择数量';
+                  this.status=false;
+              }else {
+                  let {id, bid, cid} = this.goodsinfo;
+                  let order = {id, bid, cid};
+                  order.num = this.num;
+                  order.uid = this.uid;
+                  localStorage.currOrder = JSON.stringify(order);
+                  location.href = '#/onlinepay?name='+this.$route.name+'&id='+this.$route.query.gid+"&orgname="+this.$route.query.name;
+              }
+          },
+          enter(){
+              this.active=false;
+              this.num=0;
+          },
+          reset(){
+              this.active=false;
+          },
+          getGoods(){
+              if(this.num==0){
+                this.alertbut=false;
+                this.alertbut2=true;
+                this.active=true;
+                this.message='小主尚未选择数量';
+                this.status=false;
+              }else{
+                  let order = {};
+                  let {id,bid,cid} = this.goodsinfo;
+                  order = {id,bid,cid};
+                  order.num = this.num;
+                  order.uid = this.uid;
+                  if(localStorage.orders){
+                      let orders = JSON.parse(localStorage.orders);
+                      let flag = true;
+                      orders.forEach(v=>{
+                          if(v.id==order.id){
+                              v.num+=order.num;
+                              flag = false;
+                          }
+                      })
+                      if(flag){
+                          orders.push(order);
+                      }
+                      localStorage.orders = JSON.stringify(orders);
+                  }else{
+                      localStorage.orders = JSON.stringify([order]);
+                  }
+                  this.alertbut=true;
+                  this.alertbut2=false;
+                  this.message='恭喜小主成功选购';
+                  this.status=true;
+                  this.active=true;
+              }
+
+          },
+          getColor(color){
+              this.color=color;
+          },
+          del(){
+              if(this.num<1){
+                 return;
+              }else{
+                  this.num-=1;
+              }
+          },
+          add(){
+              this.num+=1;
+          }
+        },
+        components:{ Headers },
+        computed:{
+          total:function () {
+              return this.goodsinfo.goods_price*this.num;
+          }
+        },
+        mounted(){
+            fetch('/api/goods/get_goods_details_by_id?id='+this.$route.query.gid)
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.code==2){
+                        this.goodsinfo=data.data;
+                    }
+                })
+        }
     }
 </script>
 <style scoped>
@@ -306,6 +441,7 @@
     .center1 .img{
         width: 100%;
         height: 2.2rem;
+        overflow: hidden;
     }
     .img>img{
         width: 100%;
@@ -621,5 +757,114 @@
     footer>a{
         width: 50%;
         display: flex;
+    }
+    .alert{
+        width:100%;
+        height:100%;
+        position: fixed;
+        top:0;
+        z-index:14;
+        background: rgba(0,0,0,.7);
+        transform: scale(0);
+        transition: all .3s linear;
+    }
+    .alertcon{
+        position: absolute;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        margin:auto;
+        width:2.6rem;
+        height:3.1rem;
+    }
+    .alertimg{
+        position: absolute;
+        left:50%;
+        transform:translateX(-50%);
+        top:0;
+        z-index:8;
+    }
+    .alerttext{
+        width:100%;
+        height:1.7rem;
+        position: absolute;
+        top:.6rem;
+        background: url("/static/img/ybl3_07.png") no-repeat;
+        background-size:100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size:.14rem;
+    }
+    .alertbut{
+        top:2rem;
+        position: absolute;
+        left:50%;
+        transform:translateX(-50%);
+        width:90%;
+        height:.5rem;
+        background: url("/static/img/ybl2_20.png") no-repeat;
+        background-size:100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        font-size:.14rem;
+    }
+    .alertbut span{
+        color: #fff;
+    }
+    img{
+        width:100%;
+        height:100%;
+    }
+    .scale{
+        transform: scale(1);
+    }
+    .alertbut2{
+        top:2rem;
+        position: absolute;
+        left:50%;
+        transform:translateX(-50%);
+        width:90%;
+        height:.5rem;
+        background:#2c2c2c;
+        border-radius: .25rem;
+        background-size:100%;
+        display: flex;
+        align-items: center;
+        font-size:.12rem;
+    }
+    .trueimg{
+        width:.31rem;
+        height:.31rem;
+    }
+    .alertbut2>div{
+        border-radius: 0.4rem;
+        height: 0.4rem;
+        width: 50%;
+        text-align: center;
+        padding: 0.05rem 0;
+        margin-left:.05rem;
+    }
+    .alertbut2>div.pay h4{
+        color:#fff;
+    }
+    .alertbut2>div.pay span{
+        color: #fff;
+    }
+    .alertbut2>div.pay{
+        background: #FFCA13;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .alertbut2>div h4{
+        color:#ABABAB;
+    }
+    .alertbut2>div span{
+        color: #ABABAB;
     }
 </style>

@@ -36,6 +36,21 @@ router.get('/get_goods',(req,res)=>{
     })
 })
 
-
+//获取指定家具详情
+//此处由于单个家具详情较多，所以使用多表查询，视图、联表均可，可在后期改善查询方式改善查询效率
+router.get('/get_goods_details_by_id',(req,res)=>{
+    let sql = "select g.*,b.brand_name,b.brand_area,s.s_material,s.s_structure,s.s_style,s.s_size,s.s_shape,s.s_pic from goods as g,brand as b,specification as s where s.gid = g.id and b.id = g.bid and g.id = ?"
+    con.query(sql,[req.query.id],(err,result)=>{
+        if(err){
+            res.json({code:4,message:er.message})
+        }else{
+            if(result.length>0){
+                res.json({code:2,data:result[0]})
+            }else{
+                res.json({code:4,message:'no'})
+            }
+        }
+    })
+})
 
 module.exports=router;

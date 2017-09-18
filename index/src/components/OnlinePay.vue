@@ -2,7 +2,7 @@
     <div class="pay">
         <header>
             <div class="header">
-                <div class="left"><a href="">&lt;</a></div>
+                <div class="left"><router-link :to="{name:$route.query.name,query:{gid:$route.query.id,name:$route.query.orgname}}">&lt;</router-link></div>
             </div>
         </header>
         <div class="content">
