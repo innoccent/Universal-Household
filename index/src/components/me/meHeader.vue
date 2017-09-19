@@ -24,7 +24,7 @@
     export default{
         data(){
             return {
-                name:this.$route.query.pre
+                name:'me'
             }
         }
     }

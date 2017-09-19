@@ -53,4 +53,30 @@ router.get('/get_goods_details_by_id',(req,res)=>{
     })
 })
 
+//添加订单
+router.post('/set_order',(req,res)=>{
+    let gid=req.body.id,
+        bid=req.body.bid,
+        cid=req.body.cid,
+        num=req.body.num,
+        uid=req.body.uid,
+        password = req.body.password;
+    if(password==888888){
+        let sql = "insert into orders (gid,bid,cid,num,uid) values (?,?,?,?,?)";
+        con.query(sql,[gid,bid,cid,num,uid],(err,result)=>{
+            if(err){
+                res.json({code:4,message:err.message})
+            }else{
+                if(result.insertId){
+                    res.json({code:2,message:'ok'})
+                }else{
+                    res.json({code:4,message:'服务器开小差了！'})
+                }
+            }
+        })
+    }else{
+        res.json({code:4,message:'密码不正确'});
+    }
+})
+
 module.exports=router;

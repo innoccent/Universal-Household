@@ -18,7 +18,7 @@
             </div>
             <div class="paylist">
                 <ul>
-                    <li>
+                    <li :class="{active:this.kinds==1}" @click="getKind(1)">
                         <div class="imgbox">
                             <img src="../../static/img/lrb_pay_04.png" alt="">
                         </div>
@@ -27,7 +27,7 @@
                             <span>CASH ON DELIVER</span>
                         </div>
                     </li>
-                    <li>
+                    <li :class="{active:this.kinds==2}" @click="getKind(2)">
                         <div class="imgbox">
                             <img src="../../static/img/lrb_pay_06.png" alt="">
                         </div>
@@ -36,7 +36,7 @@
                             <span>BANK CARD</span>
                         </div>
                     </li>
-                    <li>
+                    <li :class="{active:this.kinds==3}" @click="getKind(3)">
                         <div class="imgbox">
                             <img src="../../static/img/lrb_pay_08.png" alt="">
                         </div>
@@ -55,14 +55,15 @@
             </div>
         </div>
 
-        <div class="alert" v-if="active==true">
+        <div :class="{alert:true,scale:active}">
             <div class="alertcon">
                 <div class="alertimg">
                     <img src="/static/img/ybl3_02_03.png" alt="" v-show="choice==true">
                     <img src="/static/img/ybl3_03.png" alt="" v-show="choice==false">
                 </div>
                 <div class="alerttext">
-                    <h4>小主你马上就可以拥有我了哦！</h4>
+                    <h4 v-if="status">小主你马上就可以拥有我了哦！</h4>
+                    <h4 v-else>{{message}}</h4>
                     <span>SMALL LORD YOU CAN HAVE RIGHT AWAY!</span>
                 </div>
                 <div class="alertbut">
@@ -78,18 +79,18 @@
             </div>
         </div>
 
-        <div class="alert" v-if="active1==true">
+        <div :class="{alert:true,scale:active1}" ref="pass">
             <div class="alertcon">
                 <div class="password">
                     <h2>请输入您的密码</h2>
                     <span>PLEASE ENTER YOUR PASSWORD</span>
                     <div class="input">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <input type="password" v-model="currkey1">
+                        <input type="password" v-model="currkey2">
+                        <input type="password" v-model="currkey3">
+                        <input type="password" readonly v-model="currkey4">
+                        <input type="password" readonly v-model="currkey5">
+                        <input type="password" readonly v-model="currkey6">
                     </div>
                     <button @click="submit">确认</button>
                 </div>
@@ -107,10 +108,25 @@
                 active:false,
                 active1:false,
                 choice:true,
+                kinds:3,
+                currkey1:'',
+                currkey2:'',
+                currkey3:'',
+                currkey4:'',
+                currkey5:'',
+                currkey6:'',
+                index:0,
+                message:'',
+                status:true
             }
         },
         methods:{
+            getKind(kinds){
+                this.kinds = kinds;
+            },
             next:function () {
+                this.status=true;
+                this.choice=true;
                 this.active=true;
             },
             pay:function () {
@@ -119,15 +135,58 @@
                 this.active=false;
             },
             see:function () {
-                this.choice=false;
                 this.active1=false;
                 this.active=false;
             },
             submit:function () {
+                let password = [this.currkey1,this.currkey2,this.currkey3,this.currkey4,this.currkey5,this.currkey6];
+                let flag = true;
+                password.forEach(v=>{
+                    if(!v){
+                        flag=false;
+                    }
+                })
+                if(flag){
+                    let orders = JSON.parse(localStorage.currOrder);
+                    orders.password = password.join('');
+                    fetch('/api/goods/set_order',{
+                        method:'POST',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify(orders)
+                    })
+                        .then(res=>res.json())
+                        .then(data=>{
+                            if(data.code==4){
+                                for(let i = 1; i <= 6; i++){
+                                    let currkey = 'currkey'+i;
+                                    this[currkey]='';
+                                }
+                                this.index=0;
+                                this.message=data.message;
+                                this.active1=false;
+                                this.next();
+                                this.choice=false;
+                                this.status=false;
+                            }else if(data.code==2){
+                                localStorage.currOrder = [];
+                                location.href='#/order';
+                            }
+                        })
+                }
 //                location.href=''
-                history.go(0);
+//                history.go(0);
             }
-
+        },
+        mounted(){
+            document.onkeyup=(e)=>{
+                if(e.keyCode>=48&&e.keyCode<=57){
+                    if(this.index<=5){
+                        let currkey = 'currkey'+(this.index+1);
+                        this[currkey]=String.fromCharCode(e.keyCode);
+                        this.index+=1;
+                    }
+                }
+            }
         }
 
     }
@@ -229,6 +288,18 @@
         padding: 0.05rem;
         box-shadow: 0.01rem 0.02rem 0.03rem rgba(0,0,0,0.2);
         margin-bottom: 0.05rem;
+        position: relative;
+    }
+    .paylist li.active:after{
+        content: '';
+        position: absolute;
+        right: 0.05rem;
+        top:0.05rem;
+        width:0.04rem;
+        height:calc(100% - 0.1rem);
+        background: #1BD48C;
+        border-radius: 0.01rem;
+
     }
     .payment .paylist ul li>.imgbox{
         width: 0.32rem !important;
@@ -274,6 +345,8 @@
         top:0;
         z-index:14;
         background: rgba(0,0,0,.9);
+        transform: scale(0);
+        transition: all .3s linear;
     }
     .alertcon{
         position: absolute;
@@ -388,6 +461,9 @@
     img{
         width:100%;
         height:100%;
+    }
+    .scale{
+        transform: scale(1);
     }
 
 </style>

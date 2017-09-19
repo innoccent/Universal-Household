@@ -93,3 +93,16 @@ VALUES
 ('5','意大利乔木','复古实木','欧式复古','2000*1000cm','长方形','/static/img/ybl6_04.png'),
 ('6','西伯利亚枕木','实木质感','欧式简约','500*70cm','矩形','/static/img/ybl6_05.png'),
 ('7','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/ybl6_02.png');
+
+
+DROP TABLE IF EXISTS orders;
+CREATE TABLE orders(
+  id INT (10) PRIMARY KEY auto_increment,
+  gid VARCHAR (255),
+  bid VARCHAR (255),
+  cid VARCHAR (255),
+  num VARCHAR (255),
+  uid VARCHAR (255)
+)DEFAULT charset=utf8;
+ALTER TABLE orders
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
