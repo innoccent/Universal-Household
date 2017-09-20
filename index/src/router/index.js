@@ -24,7 +24,6 @@ export default new Router({
         name: 'guide',
         component: w_guide
     },
-
         {
             path: '/home',
             name: 'Htbhome',
