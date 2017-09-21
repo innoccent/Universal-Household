@@ -149,6 +149,7 @@
                 if(flag){
                     let orders = JSON.parse(localStorage.currOrder);
                     orders.password = password.join('');
+                    orders.status='1';
                     fetch('/api/goods/set_order',{
                         method:'POST',
                         headers:{'Content-Type':'application/json'},
@@ -169,7 +170,7 @@
                                 this.status=false;
                             }else if(data.code==2){
                                 localStorage.currOrder = [];
-                                location.href='#/order';
+                                location.href='#/order?status=2';
                             }
                         })
                 }

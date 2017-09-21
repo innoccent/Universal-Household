@@ -60,10 +60,12 @@ router.post('/set_order',(req,res)=>{
         cid=req.body.cid,
         num=req.body.num,
         uid=req.body.uid,
+        color=req.body.color,
+        status=req.body.status,
         password = req.body.password;
     if(password==888888){
-        let sql = "insert into orders (gid,bid,cid,num,uid) values (?,?,?,?,?)";
-        con.query(sql,[gid,bid,cid,num,uid],(err,result)=>{
+        let sql = "insert into orders (gid,bid,cid,num,uid,color,status) values (?,?,?,?,?,?,?)";
+        con.query(sql,[gid,bid,cid,num,uid,color,status],(err,result)=>{
             if(err){
                 res.json({code:4,message:err.message})
             }else{
@@ -77,6 +79,18 @@ router.post('/set_order',(req,res)=>{
     }else{
         res.json({code:4,message:'密码不正确'});
     }
+});
+
+//根据uid获取指定用户所有订单
+router.get('/get_orders_by_uid',(req,res)=>{
+    let sql = "select o.*,g.goods_name,g.goods_ename,g.goods_pic,g.goods_price,s.s_size from orders as o,goods as g,specification as s where o.uid=? and o.gid=g.id and s.gid=g.id";
+    con.query(sql,[req.query.uid],(err,result)=>{
+        if(err){
+            res.json({code:4,message:err.message})
+        }else{
+            res.json({code:2,message:'ok',orders:result})
+        }
+    })
 })
 
 module.exports=router;

@@ -315,6 +315,7 @@
                   let order = {id, bid, cid};
                   order.num = this.num;
                   order.uid = this.uid;
+                  order.color=this.color;
                   localStorage.currOrder = JSON.stringify(order);
                   location.href = '#/onlinepay?name='+this.$route.name+'&id='+this.$route.query.gid+"&orgname="+this.$route.query.name;
               }

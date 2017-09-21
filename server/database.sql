@@ -102,7 +102,9 @@ CREATE TABLE orders(
   bid VARCHAR (255),
   cid VARCHAR (255),
   num VARCHAR (255),
-  uid VARCHAR (255)
+  uid VARCHAR (255),
+  color VARCHAR (255),
+  status VARCHAR (255) DEFAULT '1'
 )DEFAULT charset=utf8;
 ALTER TABLE orders
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;

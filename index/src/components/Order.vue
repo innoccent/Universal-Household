@@ -6,43 +6,44 @@
                 <li>
                     <a href="javascript:;">
                         <span class="circle"></span>
-                        <h2  :class="{active:state==1}" @click="setState(1)">待付款
+                        <h2  :class="{active:state==1}" @click="setState('1')">待付款
                         </h2>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <h2 :class="{active:state==2}" @click="setState(2)">待发货</h2>
+                        <h2 :class="{active:state==2}" @click="setState('2')">待发货</h2>
                     </a>
 
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <h2 :class="{active:state==3}" @click="setState(3)">待收获</h2>
+                        <h2 :class="{active:state==3}" @click="setState('3')">待收货</h2>
                     </a>
 
                 </li>
                 <li>
                     <a href="javascript:;">
 
-                        <h2 :class="{active:state==4}" @click="setState(4)">待评价</h2>
+                        <h2 :class="{active:state==4}" @click="setState('4')">待评价</h2>
 
                     </a>
 
                 </li>
             </ul>
-            <div class="ordername">
-                <h2>订单编号:    <span>NO.19239987236</span>   </h2>
-            </div>
+
             <ul class="orderlistmain">
-                <li>
+                <li v-for="v in this.filter()" :key="v.id">
+                    <div class="ordername">
+                        <h2>订单编号:    <span>NO.{{v.id}}</span>   </h2>
+                    </div>
                     <ul class="orderpic">
                        <li class="pic">
-                           <img src="/static/img/nxl_order-1.png" alt="">
+                           <img :src="v.goods_pic" alt="">
                        </li>
                         <li class="order-content">
-                            <h2 class="title">北欧创意现代吊灯</h2>
-                            <h3>Nordic idea of modern droplight</h3>
+                            <h2 class="title">{{v.goods_name}}</h2>
+                            <h3>{{v.goods_ename}}</h3>
                             <div class="color">
                                 <div class="color-left">
                                     <div class="color-1"></div>
@@ -50,23 +51,26 @@
                                 </div>
                                 <div class="color-left">
                                     <div class="color-2"></div>
-                                    规格:88*88
+                                    规格:{{v.s_size}}
                                 </div>
                             </div>
                             <div class="price">
                                 <div class="price-circle">
                                         ￥
                                 </div>
-                                <div class="pricenum">680.00</div>
+                                <div class="pricenum">{{v.num*v.goods_price}}.00</div>
                             </div>
                         </li>
                     </ul>
 
                 </li>
                 <div class="pay">
-                    <h2>合计 <span>760.00</span></h2>
+                    <h2>合计 <span>{{total}}.00</span></h2>
                     <span>RMB</span>
-                    <div class="gopay">去付款</div>
+                    <div class="gopay" v-if="this.state==1">去付款</div>
+                    <div class="gopay" v-else-if="this.state==2">提醒卖家发货</div>
+                    <div class="gopay" v-else-if="this.state==3">去收货</div>
+                    <div class="gopay" v-else>去评价</div>
                 </div>
             </ul>
 
@@ -87,16 +91,41 @@
     export default{
         data(){
             return {
-                state:1,
+                state:'1',
+                goodsList:[],
+                allorders:[],
+                uid:localStorage.uid?localStorage.uid:''
             }
         },
         methods:{
             setState:function (v) {
                 this.state=v;
+            },
+            filter(){
+                return this.allorders.filter(v=>v.status==this.state)
             }
         },
         components:{
             meheader:meOrder
+        },
+        computed:{
+          total:function () {
+              let sum = 0;
+              this.filter().forEach(v=>sum+=v.num*v.goods_price);
+              return sum;
+          }
+        },
+        mounted(){
+            if(this.$route.query.status){
+                this.state=this.$route.query.status;
+            }
+            fetch('/api/goods/get_orders_by_uid?uid='+this.uid)
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.code==2){
+                        this.allorders=data.orders;
+                    }
+                })
         }
     }
 </script>
@@ -142,9 +171,11 @@
         background: #fff;
     }
     .ordername{
-        width: 100%;
+        width: 100vw;
         height: 0.27rem;
         padding-left: 0.12rem;
+        background-color: #ececec;
+        margin: 0 -0.12rem ;
     }
     .ordername h2{
         font-size: 0.14rem;
@@ -161,12 +192,14 @@
     .orderlistmain >li{
         width: 100%;
         background: #fff;
-        height: 1.1rem;
+        height: 1.47rem;
         display: flex;
-        padding:0.1rem 0.12rem;
+        padding:0rem 0.12rem 0.1rem;
         border-bottom: 0.01rem solid #bdbdbd;
+        flex-wrap: wrap;
     }
     .orderlistmain li .orderpic{
+        padding-top: 0.1rem;
         width: 100%;
         display: flex;
         justify-content: flex-start;
