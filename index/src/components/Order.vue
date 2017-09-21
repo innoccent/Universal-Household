@@ -73,9 +73,72 @@
                     <div class="gopay" v-else>去评价</div>
                 </div>
             </ul>
-
+            <ul class="detail" :class="{display:state==2}">
+                <li>
+                   <div class="logo">
+                       <img src="/static/img/nxl_one.png" alt="">
+                   </div>
+                    <div class="detail_content">
+                        <h2>订单号</h2>
+                        <h3>order number</h3>
+                        <h1>2346</h1>
+                    </div>
+                </li>
+                <li>
+                    <div class="logo">
+                        <img src="/static/img/nxl_one.png" alt="">
+                    </div>
+                    <div class="detail_content">
+                        <h2>配送商家</h2>
+                        <h3>THE merchants</h3>
+                        <div class="store">
+                            <div class="img">
+                                <img src="/static/img/nxl_store.png" alt="">
+                            </div>
+                            <div class="store-right">
+                                <div class="right-top">
+                                    <h2>鱼设计定制中心</h2>
+                                    <el-rate v-model="value1"></el-rate>
+                                </div>
+                                <h3>The fish design</h3>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="logo">
+                        <img src="/static/img/nxl_one.png" alt="">
+                    </div>
+                    <div class="detail_content">
+                        <h2>送货地址</h2>
+                        <h3>THE ADDRESS</h3>
+                        <h1 class="address">山西小胡同</h1>
+                    </div>
+                </li>
+                <li>
+                    <div class="logo">
+                        <img src="/static/img/nxl_one.png" alt="">
+                    </div>
+                    <div class="detail_content">
+                        <h2>快递员</h2>
+                        <h3>THE merchants</h3>
+                        <div class="store">
+                            <div class="img">
+                                <img src="/static/img/nxL_kuai.png" alt="">
+                            </div>
+                            <div class="store-right">
+                                <div class="right-top">
+                                    <h2>十四哥</h2>
+                                    <el-rate v-model="value1"></el-rate>
+                                </div>
+                                <h3>The fish design</h3>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="footer">
+        <div class="footer" :class="{display:state==1}">
             <div class="wawa">
                 <img src="/static/img/nxl_wawa.png" alt="">
             </div>
@@ -94,7 +157,9 @@
                 state:'1',
                 goodsList:[],
                 allorders:[],
-                uid:localStorage.uid?localStorage.uid:''
+                uid:localStorage.uid?localStorage.uid:'',
+                state:1,
+                value1: null,
             }
         },
         methods:{
@@ -130,6 +195,87 @@
     }
 </script>
 <style scoped>
+    .detail{
+       background:#2C2C2C;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding:0.25rem 0.2rem;
+        display: none;
+    }
+    .detail li{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 0.15rem;
+        padding-bottom: 0.1rem;
+        border-bottom: 0.01rem solid #bdbdbd;
+    }
+    .logo{
+        display: flex;
+        width: 0.155rem;
+        height: 0.155rem;
+        margin-right: 0.09rem;
+    }
+    .logo img{
+        width: 100%;
+        height: 100%;
+    }
+    .detail_content{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .detail_content h2{
+        font-size: 0.12rem;
+        color: #fff;
+    }
+    .detail_content h3{
+        font-size: 0.10rem;
+        color: #fff;
+    }
+    .detail_content h1{
+        font-size: 0.14rem;
+        color: #1ee497;
+        padding-top:0.05rem;
+        /*padding-bottom: 0.05rem;*/
+    }
+    .store{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .store  .img{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .right-top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .store-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 0.1rem;
+    }
+    .right-right h3{
+        font-size: 0.14rem;
+        color: #ababab;
+    }
+    .el-rate{
+        display: flex;
+        align-items: center;
+    }
+    .display{
+        display: block;
+    }
+    .address{
+        color:  #ababab!important;
+    }
     .box{
         position: relative;
         top:0.5rem;
@@ -324,6 +470,7 @@
         bottom:0;
         width: 100%;
         height: 0.71rem;
+        display: none;
     }
     .wawa{
 
