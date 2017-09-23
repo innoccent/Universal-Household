@@ -149,7 +149,7 @@
                 if(flag){
                     let orders = JSON.parse(localStorage.currOrder);
                     orders.password = password.join('');
-                    orders.status='1';
+                    orders.status='2';
                     fetch('/api/goods/set_order',{
                         method:'POST',
                         headers:{'Content-Type':'application/json'},

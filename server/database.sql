@@ -104,7 +104,26 @@ CREATE TABLE orders(
   num VARCHAR (255),
   uid VARCHAR (255),
   color VARCHAR (255),
-  status VARCHAR (255) DEFAULT '1'
+  status VARCHAR (255) DEFAULT '1',
+  ad_id VARCHAR (255)
 )DEFAULT charset=utf8;
 ALTER TABLE orders
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
+
+
+DROP TABLE IF EXISTS address;
+create table address (
+  id INT (10) PRIMARY KEY auto_increment,
+  uid VARCHAR (255),
+  ad_name VARCHAR (255),
+  ad_tel VARCHAR (255),
+  ad_area VARCHAR (255),
+  ad_address VARCHAR (255),
+  ad_code VARCHAR (255),
+  is_default VARCHAR (255) DEFAULT '0'
+)DEFAULT charset=utf8;
+ INSERT INTO address
+(uid, ad_name, ad_tel, ad_area, ad_address, ad_code,is_default)
+VALUES
+('1','春花','18003210032','北京市,朝阳区','北京市朝阳区科荟路33号','100085','1'),
+('1','香菜','13603065224','北京市,海淀区','北京市海淀区xx路33号','100085','0');

@@ -1,7 +1,7 @@
 <template>
     <div class="evaluate">
         <div class="meheader">
-            <router-link :to="{name:'home'}">
+            <router-link :to="{name:'order',query:{status:'4'}}">
                 <div class="ceter-left">
                     <img src="/static/img/nxl_jiangtou_left.png" alt="">
                 </div>
@@ -14,19 +14,29 @@
         <div class="evaluate-content">
              <div class="main">
                  <div class="main-img">
-                     <img src="/static/img/nxl_eva.png" alt="">
+                     <img :src="goodsinfo.s_pic" alt="">
                  </div>
              </div>
              <div class="title">
                      <div class="top-title">
-                         <h2>伊姆斯现代小户型餐桌</h2>
-                         <h3>Modern small family table</h3>
+                         <h2>{{goodsinfo.goods_name}}</h2>
+                         <h3 style="text-transform: uppercase">{{goodsinfo.goods_ename}}</h3>
                          <div class="line"></div>
                      </div>
                      <div class="center-title">
-                         <h2>收到的物品感觉很值，也符合了自己的要求，客服的贴
-                             心服务以及物流也很到位…</h2>
-                         <input type="text">
+                         <textarea v-model="content" placeholder="请输入您对本产品的评论" autofocus resize="none"></textarea>
+                         <el-upload
+                                 action="/api/goods/orders_evaluate_currimg"
+                                 list-type="picture-card"
+                                 :on-preview="handlePictureCardPreview"
+                                 :on-remove="handleRemove"
+                                 class="upload"
+                         >
+                             <i class="el-icon-plus"></i>
+                         </el-upload>
+                         <el-dialog v-model="dialogVisible" size="tiny">
+                             <img width="100%" :src="dialogImageUrl" alt="">
+                         </el-dialog>
                      </div>
                      <div class="line"></div>
                      <div class="footer-title">
@@ -52,8 +62,44 @@
         data(){
             return {
                 value1: null,
-                value2: null
+                value2: null,
+                content: '',
+                file: [],
+                dialogImageUrl: '',
+                dialogVisible: false,
+                id:this.$route.query.id,
+                goodsinfo:{}
             }
+        },
+        methods:{
+            change(){
+                this.file=this.$refs.file;
+                console.dir(this.$refs.file.files[0])
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
+            },
+            handlePictureCardPreview(file) {
+                this.dialogImageUrl = file.url;
+                this.dialogVisible = true;
+            }
+        },
+        mounted(){
+            document.querySelector('.el-upload--picture-card').style.cssText=`
+                width:100%;
+                height: 100%;
+                line-height:0.4rem;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            fetch('/api/goods/get_goods_info_by_id?id='+this.id)
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.code==2){
+                        this.goodsinfo=data.data;
+                    }
+                })
         }
     }
 </script>
@@ -119,6 +165,7 @@
         padding:0.31rem 0.48rem  0;
         display: flex;
         flex-direction: column;
+        width:100%;
     }
     .main{
         width: 100%;
@@ -131,7 +178,8 @@
     }
     .main-img img{
         width: 100%;
-        height: 100%;
+        /*height: 100%;*/
+
     }
     .title{
         width: 100%;
@@ -196,18 +244,29 @@
         display: flex;
         flex-direction: column;
     }
-    .center-title input{
-        margin-top: 0.25rem;
+    .center-title .upload{
+        /*margin-top: 0.25rem;*/
         width: 0.4rem;
         height:0.4rem;
         outline: none;
         border:none;
-        background: url('/static/img/nxl_img.png');
+        display: flex;
+        overflow: hidden;
+        -webkit-tap-highlight-color: transparent;
+        position: relative;
+        z-index: 99;
+        line-height:0.4rem!important;
     }
-    .center-title h2{
+    .center-title textarea{
         font-size: 0.12rem;
+        width:100%;
+        height:calc(100% - 0.4rem);
         color:#6b6b6b;
         font-weight: normal;
+        border:none;
+        outline: none;
+        -webkit-appearance: none;
+        resize: none;
     }
     .footer-title{
         display: flex;

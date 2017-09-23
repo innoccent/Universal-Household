@@ -14,6 +14,7 @@ import Me  from '../components/Me'
 import GoodsDetails from '../components/GoodsDetails.vue'
 import OnlinePay from '../components/OnlinePay.vue'
 import Order from '../components/Order'
+import evaluate from '../components/me/Evaluate'
 
 Vue.use(Router)
 
@@ -24,51 +25,51 @@ export default new Router({
         name: 'guide',
         component: w_guide
     },
-        {
-            path: '/home',
-            name: 'Htbhome',
-            component: Htbhome
-        },
-        {
-            path:'/htbactivity',
-            name:'htbactivity',
-            component:HtbActivity
-        },
-        {
-            path: '/mode',
-            name: 'mode',
-            component: Mode
-        },
-        {
-            path: '/me/medata',
-            name: 'medata',
-            component: MeData
-        },
-        {
-            path: '/me/address',
-            name: 'address',
-            component: Address
-        },
-        {
-            path: '/me',
-            name: 'me',
-            component:Me
-        },
-        {
-            path: '/order',
-            name: 'order',
-            component: Order
-        },
-      {
+    {
+        path: '/home',
+        name: 'Htbhome',
+        component: Htbhome
+    },
+    {
+        path:'/htbactivity',
+        name:'htbactivity',
+        component:HtbActivity
+    },
+    {
+        path: '/mode',
+        name: 'mode',
+        component: Mode
+    },
+    {
+        path: '/me/medata',
+        name: 'medata',
+        component: MeData
+    },
+    {
+        path: '/me/address',
+        name: 'address',
+        component: Address
+    },
+    {
+        path: '/me',
+        name: 'me',
+        component:Me
+    },
+    {
+        path: '/order',
+        name: 'order',
+        component: Order
+    },
+    {
           path: '/goodsdetails',
           name: 'goodsdetails',
           component: GoodsDetails
-      },
+    },
       {
           path: '/onlinepay',
           name: 'onlinepay',
           component:OnlinePay
-    },
+      },
       {
         path:'/login',
         name:'login',
@@ -88,6 +89,11 @@ export default new Router({
           path:'/classify',
           name:'classify',
           component:classify
-        }
+      },
+      {
+          path:'/evaluate',
+          name:'evaluate',
+          component:evaluate
+      }
   ]
 })
