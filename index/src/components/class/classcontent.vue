@@ -3,87 +3,53 @@
         <div class="main">
             <div class="main-top">
                 <div class="main-top-main">
-                    <a href="">
-                        <div class="make-mode">
-                            <h1>全部分类</h1>
-                            <h2>ALLITEM</h2>
-                        </div>
-                    </a>
-                    <div class="line"></div>
-                    <a href="">
-                        <div class="make-mode">
-                            <h1>精选</h1>
-                            <h2>SELECT</h2>
-                        </div>
-                    </a>
-                    <div class="line"></div>
-                    <a href="">
-                        <div class="make-mode">
+                    <!--<a href="">-->
+                        <!--<div class="make-mode">-->
+                            <!--<h1>全部分类</h1>-->
+                            <!--<h2>ALLITEM</h2>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                    <!--<div class="line"></div>-->
+                    <a href="javascript:;" @click="active='1'">
+                        <div :class="{'make-mode':true,active:this.active==1}">
                             <h1>家具</h1>
                             <h2>FURNITURE</h2>
+                        </div>
+                    </a>
+                    <div class="line"></div>
+                    <a href="javascript:;" @click="active='2'">
+                        <div :class="{'make-mode':true,active:this.active==2}">
+                            <h1>精选</h1>
+                            <h2>SELECT</h2>
                         </div>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="content">
+        <div class="content" v-if="active==1">
             <div class="content1">
                 <div class="title">
-                    <span>灯</span>
+                    <span>{{categories.length?categories[0].cate_name[0]:''}}</span>
                     <span class="shuline"></span>
-                    <span>具</span>
+                    <span>{{categories.length?categories[0].cate_name[1]:''}}</span>
                 </div>
                 <div class="engword">
-                    <span>Lamps </span>lanterns
+                    <span>{{categories.length?categories[0].cate_ename[0]:'' }} </span>{{categories.length?categories[0].cate_ename[1]:''}}
                 </div>
                 <div class="lamp-main">
                     <ul>
-                        <li>
+                        <li v-for="v in cate_goods[0]" :key="v.id">
                             <div class="light1"></div>
-                            <a href="">
-                                <div class="light2"><img src="/static/img/yb2_08.png" alt=""></div>
-                            </a>
+                            <router-link :to="{name:'goodsdetails',query:{gid:v.id,name:'classify'}}">
+                                <div class="light2"><img :src="v.goods_pic" alt=""></div>
+                            </router-link>
                             <div class="light3">
-                                <div class="title">雷士照明灯</div>
-                                <div class="mid">LEISHI LIGHTING</div>
+                                <div class="title">{{v.goods_name}}</div>
+                                <div class="mid">{{v.goods_ename}}</div>
                                 <div class="hengline"></div>
                                 <div class="bottom">
                                 <span>
-                                    <span class="money"></span>1999
-                                    <span class="message"></span>3999
-                                </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="light1"></div>
-                            <a href="">
-                                <div class="light2"><img src="/static/img/yb2_08.png" alt=""></div>
-                            </a>
-                            <div class="light3">
-                                <div class="title">雷士照明灯</div>
-                                <div class="mid">LEISHI LIGHTING</div>
-                                <div class="hengline"></div>
-                                <div class="bottom">
-                                <span>
-                                    <span class="money"></span>1999
-                                    <span class="message"></span>3999
-                                </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="light1"></div>
-                            <a href="">
-                                <div class="light2"><img src="/static/img/yb2_08.png" alt=""></div>
-                            </a>
-                            <div class="light3">
-                                <div class="title">雷士照明灯</div>
-                                <div class="mid">LEISHI LIGHTING</div>
-                                <div class="hengline"></div>
-                                <div class="bottom">
-                                <span>
-                                    <span class="money"></span>1999
+                                    <span class="money"></span>{{v.goods_price}}
                                     <span class="message"></span>3999
                                 </span>
                                 </div>
@@ -94,25 +60,25 @@
             </div>
             <div class="content2">
                 <div class="title">
-                    <span>家</span>
+                    <span>{{categories.length?categories[1].cate_name[0]:''}}</span>
                     <span class="shuline"></span>
-                    <span>饰</span>
+                    <span>{{categories.length?categories[1].cate_name[1]:''}}</span>
                 </div>
                 <div class="engword">
-                    <span>THE </span>role ofing
+                    <span>{{categories.length?categories[1].cate_ename[0]:'' }} </span>{{categories.length?categories[1].cate_ename[1]:''}}
                 </div>
                 <div class="main2">
                     <ul class="jiashi-content">
-                        <li>
-                            <a href="">
+                        <li v-for="v in cate_goods[1]" :key="v.id">
+                            <router-link :to="{name:'goodsdetails',query:{gid:v.id,name:'classify'}}">
                                 <div class="jiashi-1">
                                     <div class="jiashi-1-img">
-                                        <img src="/static/img/yb2_21.png" alt="">
+                                        <img :src="v.goods_pic" alt="">
                                     </div>
                                     <div class="jiashi-1-bg"></div>
                                     <div class="deng-title">
-                                        <h2>玉兰仿真花</h2>
-                                        <h3>Europe and United States lamp</h3>
+                                        <h2>{{v.goods_name}}</h2>
+                                        <h3>{{v.goods_ename}}</h3>
                                         <div class="deng-line"></div>
                                         <div class="late-con-det">
                                             <ul>
@@ -133,91 +99,114 @@
                                 </div>
                                 <div class="deng-2"></div>
                                 <div class="deng-3"></div>
-                            </a>
+                            </router-link>
                         </li>
-                        <li>
-                            <a href="">
-                                <div class="jiashi-1">
-                                    <div class="jiashi-1-img">
-                                        <img src="/static/img/yb2_23.png" alt="">
-                                    </div>
-                                    <div class="jiashi-1-bg"></div>
-                                    <div class="deng-title">
-                                        <h2>玉兰仿真花</h2>
-                                        <h3>Europe and United States lamp</h3>
-                                        <div class="deng-line"></div>
-                                        <div class="late-con-det">
-                                            <ul>
-                                                <li class="late-more">
-                                                    <div>
-                                                        <span>3245</span>
-                                                    </div>
-                                                    <div>
-                                                        <span>2568</span>
-                                                    </div>
-                                                    <div>
-                                                        <span>5210</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="deng-2"></div>
-                                <div class="deng-3"></div>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
             </div>
             <div class="content3">
                 <div class="title">
-                    <span>收</span>
+                    <span>{{categories.length?categories[2].cate_name[0]:''}}</span>
                     <span class="shuline"></span>
-                    <span>纳</span>
+                    <span>{{categories.length?categories[2].cate_name[1]:''}}</span>
                 </div>
                 <div class="engword">
-                    <span>TO </span>RECEIVE A
+                    <span>{{categories.length?categories[2].cate_ename[0] :'' }}&nbsp;</span>{{categories.length?categories[2].cate_ename[1]:''}}
                 </div>
                 <div class="main4">
                     <ul class="enter-content">
-                        <li>
-                            <div class="enter-pic1">
-                                <img src="/static/img/yb2_37.png" alt="">
-                                <div class="enter-main">
-                                    <ul>
-                                        <li class="late-con-title">
-                                            <div>梳妆收纳台</div>
-                                        </li>
-                                        <li class="late-text">
-                                            <p>Receive dressing table</p>
-                                        </li>
-                                        <li class="late-more">
-                                            <div>
-                                                <span>3245</span>
-                                            </div>
-                                            <div>
-                                                <span>2568</span>
-                                            </div>
-                                            <div>
-                                                <span>5210</span>
-                                            </div>
-                                            <div class="late-people">
-                                                <ul>
-                                                    <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
-                                                    <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
-                                                    <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
-                                                    <!--<li>...</li>-->
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    </ul>
+                        <router-link :to="{name:'goodsdetails',query:{gid:v.id,name:'classify'}}" v-for="v in cate_goods[2]" :key="v.id">
+                            <li>
+                                <div class="enter-pic1">
+                                    <img :src="v.goods_pic" alt="">
+                                    <div class="enter-main">
+                                        <ul>
+                                            <li class="late-con-title">
+                                                <div>{{v.goods_name}}</div>
+                                            </li>
+                                            <li class="late-text">
+                                                <p>{{v.goods_ename}}</p>
+                                            </li>
+                                            <li class="late-more">
+                                                <div>
+                                                    <span>3245</span>
+                                                </div>
+                                                <div>
+                                                    <span>2568</span>
+                                                </div>
+                                                <div>
+                                                    <span>5210</span>
+                                                </div>
+                                                <div class="late-people">
+                                                    <ul>
+                                                        <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
+                                                        <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
+                                                        <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
+                                                        <!--<li>...</li>-->
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="enter-pic2"></div>
-                            <div class="enter-pic3"></div>
-                        </li>
+                                <div class="enter-pic2"></div>
+                                <div class="enter-pic3"></div>
+                            </li>
+                        </router-link>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tuijian" v-else>
+            <div class="content3">
+                <div class="title">
+                    <span>精</span>
+                    <span class="shuline"></span>
+                    <span>选</span>
+                </div>
+                <div class="engword">
+                    <span>TO </span>SELECT
+                </div>
+                <div class="main4">
+                    <ul class="enter-content">
+                        <router-link :to="{name:'goodsdetails',query:{gid:v.id,name:'classify'}}" v-for="v in position" :key="v.id">
+                            <li>
+                                <div class="enter-pic1">
+                                    <img :src="v.goods_pic" alt="">
+                                    <div class="enter-main">
+                                        <ul>
+                                            <li class="late-con-title">
+                                                <div>{{v.goods_name}}</div>
+                                            </li>
+                                            <li class="late-text">
+                                                <p>{{v.goods_ename}}</p>
+                                            </li>
+                                            <li class="late-more">
+                                                <div>
+                                                    <span>3245</span>
+                                                </div>
+                                                <div>
+                                                    <span>2568</span>
+                                                </div>
+                                                <div>
+                                                    <span>5210</span>
+                                                </div>
+                                                <div class="late-people">
+                                                    <ul>
+                                                        <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
+                                                        <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
+                                                        <!--<li><img src="../../../static/img/htbimg/det-1_03.png" alt=""></li>-->
+                                                        <!--<li>...</li>-->
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="enter-pic2"></div>
+                                <div class="enter-pic3"></div>
+                            </li>
+                        </router-link>
                     </ul>
                 </div>
             </div>
@@ -228,16 +217,58 @@
 <script>
     export default {
         data() {
-            return {}
+            return {
+                active:'1',
+                goods:[],
+                categories:[],
+            }
         },
-        methods: {}
+        methods: {
+            getCate_goods(id){
+                return this.goods.filter(v=>v.cid==id);
+            }
+        },
+        computed:{
+          cate_goods:function () {
+              var arr = [];
+              this.categories.forEach(v=>{
+                  var curr = this.getCate_goods(v.id);
+                  arr.push(curr);
+              })
+              return arr;
+          },
+          position:function () {
+              return this.goods.filter(v=>v.is_pos==1)
+          }
+        },
+        mounted(){
+            fetch('/api/goods/get_categories')
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.code==2){
+                        data.data.forEach(v=>{
+                            v.cate_name=[...v.cate_name];
+                            v.cate_ename=v.cate_ename.split(' ');
+                            this.categories.push(v)
+                        });
+                    }
+                })
+            fetch('/api/goods/get_goods')
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.code==2){
+                        this.goods=data.data;
+                    }
+                })
+        }
     }
 </script>
 
 <style scoped>
-    .main{
+    .main,.tuijian{
         position: relative;
         padding:0.06rem  0.12rem 0;
+        -webkit-tap-highlight-color: transparent;
     }
     .main-top{
         height: 0.5rem;
@@ -253,6 +284,29 @@
         display: flex;
         justify-content:space-around;
 
+    }
+    .main-top-main > a{
+        display: flex;
+        width:50%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+    }
+    .main-top-main > a > div{
+        position: relative;
+    }
+    .main-top-main > a > div.active:before{
+        content:'';
+        display: block;
+        width:0.05rem;
+        height:0.05rem;
+        background: #ffca13;
+        border-radius: 50%;
+        position: absolute;
+        left:-40%;
+        top:50%;
+        margin-top: -0.025rem;
     }
     .main-top-left .pic1,.main-top-left .pic2{
         width: 0.04rem;
@@ -277,7 +331,7 @@
     }
     .make-mode h1{
         font-weight: normal;
-        padding-top: 0.09rem;
+        /*padding-top: 0.09rem;*/
     }
     .line{
         width: 0.03rem;
@@ -533,12 +587,14 @@
     .enter-content{
         padding-top: 0.1rem;
     }
-    .enter-content>li{
+    .enter-content>a>li{
         width:3.51rem;
         height:2rem;
         background: #fff;
         border-radius: .05rem;
         position: relative;
+        color: #333;
+        margin-bottom: 0.2rem;
     }
     .enter-main{
         margin-top:-.18rem;

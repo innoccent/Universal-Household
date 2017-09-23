@@ -446,6 +446,7 @@
     }
     .deng-content li   .deng-1-img{
         position: absolute;
+        width:95%;
         left:50%;
         transform:translateX(-50%);
        padding-top: 0.05rem;
@@ -493,6 +494,7 @@
     }
     .jiashi-1-img{
         border-radius: 0.08rem;
+        width:95%;
         position: absolute;
         left:50%;
         transform:translateX(-50%);

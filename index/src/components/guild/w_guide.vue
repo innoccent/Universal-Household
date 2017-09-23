@@ -44,9 +44,9 @@
             },
         },
         methods:{
-          touch(){
-              this.active=this.swiper.realIndex;
-          }
+            touch(){
+                this.active=this.swiper.realIndex;
+            }
         },
         mounted() {
 

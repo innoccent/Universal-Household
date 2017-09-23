@@ -12,7 +12,7 @@ export default {
 
 <style>
 * {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'STHeiti', 'Microsoft YaHei', 'Helvetica', 'Arial', sans-serif;
   padding:0;
   margin:0;
   list-style: none;

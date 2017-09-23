@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="header">
-            <div class="left"><a href="">&lt;</a></div>
+            <div class="left"><router-link :to="{name:pageinfo}">&lt;</router-link></div>
             <div class="right">
                 <div>
                     <div class="img"><img src="/static/img/lrb_03.png" alt=""></div>
@@ -16,7 +16,7 @@
 <script>
     export default {
         name:'header',
-        props:['head'],
+        props:['head','pageinfo'],
     }
 </script>
 <style scoped>

@@ -24,7 +24,7 @@
     export default{
         data(){
             return {
-                name:this.$route.query.pre
+                name:'me'
             }
         }
     }
@@ -39,6 +39,7 @@
         top:0;
         display: flex;
         justify-content: center;
+        z-index:9999;
     }
     .ceter-left{
         height: 100%;
