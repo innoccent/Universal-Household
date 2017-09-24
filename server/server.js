@@ -6,10 +6,10 @@ const port = 18080;
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const upload =
+
 
 const crypto = require('crypto');
-const md5 = require('./class/function')
+const md5 = require('./class/function');
 
 
 //加载登录路由

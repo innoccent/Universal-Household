@@ -15,6 +15,7 @@ import GoodsDetails from '../components/GoodsDetails.vue'
 import OnlinePay from '../components/OnlinePay.vue'
 import Order from '../components/Order'
 import evaluate from '../components/me/Evaluate'
+import SearchResult from '../components/SearchResult.vue'
 
 Vue.use(Router)
 
@@ -94,6 +95,11 @@ export default new Router({
           path:'/evaluate',
           name:'evaluate',
           component:evaluate
+      },
+      {
+          path:'/searchresult',
+          name:'searchresult',
+          component:SearchResult
       }
   ]
 })
