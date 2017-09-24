@@ -1,20 +1,20 @@
 <template>
     <div class="search-main">
-        <myheader :head='mess'></myheader>
+        <myheader :head='mess' pageinfo="Htbhome"></myheader>
         <div class="search-input">
             <div class="search-bgcolor"></div>
             <div class="htb-search">
 
-                <input type="text" placeholder="家具" id="search">
-                <div class="htb-submit"></div>
+                <input type="text" placeholder="家具" id="search" v-model="keyword">
+                <div class="htb-submit" @click="search"></div>
             </div>
         </div>
         <div class="search-result">
             <div class="search-result-1">
                 <span>当前优先搜索结果</span>
-                <span>658</span>
+                <span>{{result.length}}</span>
             </div>
-            <div class="search-result-2">
+            <div class="search-result-2" v-if="message">
                 <div class="sea-sorry">
                     <span>SORRY</span>
                 </div>
@@ -23,7 +23,7 @@
                     <p>sorry didn't find you need goods</p>
                 </div>
             </div>
-            <div class="search-result-3">
+            <div class="search-result-3" v-if="!keyword.length">
                 <div class="search-title">
                     <p>Search history</p>
                     <p><span></span>搜索历史</p>
@@ -31,58 +31,59 @@
                 <div class="result-3-content">
                     <ul>
                         <li>
-                            <div class="history-tag">
-                                <a href="">榻榻米床</a>
+                            <div class="history-tag" v-if="history.length>0">
+                                <a href="javascript:;">{{history[0]}}</a>
                             </div>
-                            <div class="history-tag">
-                                <a href="">榻榻米床</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="history-tag">
-                                <a href="">榻榻米床</a>
-                            </div>
-                            <div class="history-tag">
-                                <a href="">榻榻米床</a>
-                            </div>
-                            <div class="history-tag">
-                                <a href="">榻榻米床</a>
+                            <div class="history-tag" v-if="history.length>1">
+                                <a href="javascript:;">{{history[1]}}</a>
                             </div>
                         </li>
-                        <li>
-                            <div class="history-tag">
-                                <a href="">榻榻米床</a>
+                        <li v-if="history.length>2">
+                            <div class="history-tag" v-if="history.length>2">
+                                <a href="javascript:;">{{history[2]}}</a>
                             </div>
-                            <div class="history-tag">
-                                <a href="">榻榻米床</a>
+                            <div class="history-tag" v-if="history.length>3">
+                                <a href="javascript:;">{{history[3]}}</a>
+                            </div>
+                            <div class="history-tag" v-if="history.length>4">
+                                <a href="javascript:;">{{history[4]}}</a>
                             </div>
                         </li>
-                        <li class="history-circle">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                        <li v-if="history.length>5">
+                            <div class="history-tag" v-if="history.length>5">
+                                <a href="javascript:;">{{history[5]}}</a>
+                            </div>
+                            <div class="history-tag" v-if="history.length>6">
+                                <a href="javascript:;">{{history[6]}}</a>
+                            </div>
                         </li>
+                        <!--<li class="history-circle">-->
+                        <!--<span></span>-->
+                        <!--<span></span>-->
+                        <!--<span></span>-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>
         </div>
-        <arrivals></arrivals>
+        <arrivals v-if="!result.length" :position="position"></arrivals>
         <div class="result-content">
             <ul>
-                <li class="res-con-main">
-                    <a href="">
+                <li class="res-con-main" v-for="v in result" :key="v.id">
+                    <router-link :to="{name:'goodsdetails',query:{name:'searchresult',gid:v.id}}">
                         <div class="res-goods">
-                            <div class="res-goods-img">
-                                <img src="/static/img/htbimg/result-1_10.png" alt="">
+                            <div class="res-goods-img"
+                                 :style="{background:`url(${v.goods_pic}) top center/cover no-repeat`}">
+                                <!--<img :src="v.goods_pic" alt="">-->
                             </div>
                             <div class="res-goods-detail">
                                 <div class="res-goods-title">
-                                    <p>minimalist</p>
-                                    <p>北欧极简风</p>
+                                    <p>{{v.goods_ename}}</p>
+                                    <p>{{v.goods_name}}</p>
                                 </div>
                                 <div class="res-goods-desc">
                                     <p>
-                                        以简单到极致为追求感官上简约 整洁品味更为优雅……
+                                        {{v.goods_desc}}
                                     </p>
                                 </div>
                             </div>
@@ -106,7 +107,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -120,12 +121,73 @@
         name: 'searchresult',
         data() {
             return {
-                mess: '搜索结果'
+                mess: '搜索结果',
+                keyword: '',
+                result: [],
+                history: [],
+                message:false,
+                position:[]
             }
         },
         components: {
             'myheader': header,
             'arrivals': newarrivals
+        },
+        watch: {
+            keyword: function () {
+                if (this.keyword.length == 0) {
+                    this.result = [];
+                }
+            }
+        },
+        mounted() {
+            this.keyword = this.$route.query.keyword;
+            fetch('/api/index/get_search?keyword=' + this.$route.query.keyword)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.code == 2) {
+                        this.result = data.data;
+                    }
+                })
+            if (localStorage.search_history) {
+                this.history = JSON.parse(localStorage.search_history);
+            }
+            fetch('/api/index/get_position?id=(20,30,22,23,24)')
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.code==2){
+                        this.position = data.data;
+                    }
+                })
+        },
+        methods: {
+            search() {
+                if (this.keyword) {
+                    fetch('/api/index/get_search?keyword=' + this.keyword)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.code == 2) {
+                                this.result = data.data;
+                                if(!data.data.length){
+                                    this.message=true;
+                                }else{
+                                    this.message=false;
+                                }
+                            }
+                        })
+                    if(localStorage.search_history){
+                        let history = JSON.parse(localStorage.search_history);
+                        history.push(this.keyword);
+                        this.history=history;
+                        localStorage.search_history = JSON.stringify(history);
+                    }else{
+                        localStorage.search_history = JSON.stringify([this.keyword]);
+                    }
+                } else {
+                    this.result = [];
+                }
+
+            }
         }
     }
 </script>
@@ -231,7 +293,7 @@
 
     .search-result-3 {
         width: 100%;
-        height: 2.29rem;
+        height: auto;
     }
 
     .search-title {
@@ -370,7 +432,8 @@
         font-size: 0.12rem;
         color: #6d6d6d;
     }
-    .late-more{
+
+    .late-more {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -379,27 +442,33 @@
         margin-top: 0.05rem;
         border-top: 1px double #bdbdbd;
     }
-    .late-more div{
+
+    .late-more div {
         width: 25%;
         padding-left: 0.13rem;
     }
-    .late-more div:nth-child(1){
-        background:url("/static/img/htbimg/xin_07.png")left center no-repeat;
+
+    .late-more div:nth-child(1) {
+        background: url("/static/img/htbimg/xin_07.png") left center no-repeat;
     }
-    .late-more div:nth-child(2){
-        background:url("/static/img/htbimg/com_07.png")left center no-repeat;
+
+    .late-more div:nth-child(2) {
+        background: url("/static/img/htbimg/com_07.png") left center no-repeat;
     }
-    .late-more div:nth-child(3){
-        background:url("/static/img/htbimg/shop_09.png")left center no-repeat;
+
+    .late-more div:nth-child(3) {
+        background: url("/static/img/htbimg/shop_09.png") left center no-repeat;
     }
-    .late-people>ul{
+
+    .late-people > ul {
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: flex-end;
         margin-left: 0.1rem;
     }
-    .late-people>ul>li{
+
+    .late-people > ul > li {
         width: 0.24rem;
         height: 0.24rem;
         background-repeat: no-repeat;
@@ -407,14 +476,17 @@
         border-radius: 50%;
         overflow: hidden;
     }
-    .late-people>ul>li>img{
+
+    .late-people > ul > li > img {
         display: block;
     }
-    .late-people>ul>li:nth-child(2),.late-people>ul>li:nth-child(3){
+
+    .late-people > ul > li:nth-child(2), .late-people > ul > li:nth-child(3) {
         margin-left: -0.05rem;
     }
-    .late-people>ul>li:nth-child(4){
-        width:0.13rem;
+
+    .late-people > ul > li:nth-child(4) {
+        width: 0.13rem;
         height: 0.13rem;
         color: #f1f1f1;
         font-size: 0.1rem;

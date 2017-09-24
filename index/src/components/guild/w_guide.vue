@@ -28,6 +28,7 @@
                     observeParents:true,
                     onTransitionStart(swiper){
                         this.active=swiper.realIndex;
+                        console.log(this.active)
                     },
                     onTouchEnd(){
                         if(this.active==2) {

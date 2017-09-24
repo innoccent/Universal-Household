@@ -34,7 +34,12 @@ VALUES
 ('家饰','domesti cofing','1'),
 ('沙发','the sofa','1'),
 ('床','tea bed','1'),
-('茶几','tea table','1');
+('茶几','tea table','1'),
+('轮播','banner','2'),
+('限时','limit','2'),
+('免费','free','2'),
+('设计','design','2');
+
 
 DROP TABLE IF EXISTS goods;
 CREATE TABLE goods(
@@ -85,7 +90,17 @@ VALUES
 ('2','7','0','婚庆大红床','centracten tea table','/static/img/detail_13.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
 ('2','8','1','简约风茶几','contracted wind tea table','/static/img/nxl_chaji_1.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
 ('2','8','1','欧式古典茶几','contracted wind tea table','/static/img/nxl_1_56.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
-('2','8','0','中式古茶几','china agin tea table','/static/img/small_02.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新');
+('2','8','0','中式古茶几','china agin tea table','/static/img/small_02.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','9','1','休闲时光茶几','china agin tea table','/static/img/banner-1_03.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','9','1','百纳储物柜','china agin tea table','/static/img/banner-3_03.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','9','1','收纳盒','china agin tea table','/static/img/bannner-2_03.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','10','1','欧普照明灯','cloth art sofa','/static/img/htbimg/t-1_07.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','10','1','北欧式木桌','european princess bed','/static/img/htbimg/xs-2_07.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','10','1','舒秒','china agin tea table','/static/img/xianshi-3_07.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','11','1','百搭花瓶','china agin tea table','/static/img/htbimg/mf-2_13.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','11','1','维纳斯','china agin tea table','/static/img/htbimg/mf-1_11.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','12','1','波西米亚田园风格','china agin tea table','/static/img/htbimg/zj-1_18.png','3999','用家具表现悠闲、舒畅、自然的生活情趣，你想要的舒适尽在这里展现......','简洁，清新'),
+('2','12','1','新古典主义风格','china agin tea table','/static/img/htbimg/zj-2_21.png','3999','一曲古典音乐，一杯香浓摩卡，一首古典诗歌，你想要的classify淋漓精致的在这里展现........','简洁，清新');
 
 DROP TABLE IF EXISTS brand;
 create table brand (
@@ -148,7 +163,17 @@ VALUES
 ('29','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_08.png'),
 ('30','鸭绒','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_36.png'),
 ('31','梨树','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_09.png'),
-('32','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_11.png');
+('32','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_11.png'),
+('33','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/wxt_03.png'),
+('34','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/wxt_07.png'),
+('35','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/wxt_11.png'),
+('36','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/nxl-100.png'),
+('37','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/nxl-101.png'),
+('38','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/nxl-105.png'),
+('39','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/nxl-103.png'),
+('40','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/nxl-102.png'),
+('41','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/nxl-104.png'),
+('42','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/nxl-105.png');
 
 
 DROP TABLE IF EXISTS orders;

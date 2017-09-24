@@ -21,6 +21,9 @@ const info = require('./router/me');
 //加载商品页路由
 const goods = require('./router/goods');
 
+//加载首页路由
+const index = require('./router/index')
+
 //链接数据库
 const con = mysql.createConnection({
     host:'localhost',
@@ -37,7 +40,9 @@ server.use('/api/login',user);
 
 server.use('/api/user',info);
 
-server.use('/api/goods',goods)
+server.use('/api/goods',goods);
+
+server.use('/api/index',index)
 
 server.listen(port);
 

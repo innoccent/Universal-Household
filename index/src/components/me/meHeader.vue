@@ -42,7 +42,8 @@
         z-index:2000;
     }
     .ceter-left{
-        height: 100%;
+        height: 0.3rem;
+        width:0.3rem;
         position: absolute;
         left:0.14rem;
         top:50%;

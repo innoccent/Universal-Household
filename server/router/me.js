@@ -1,5 +1,5 @@
 //me(个人页路由设置)
-
+'use strict'
 var express = require('express');
 var router = express.Router();
 var md5 = require('../class/function');
