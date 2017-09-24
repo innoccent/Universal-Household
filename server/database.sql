@@ -19,16 +19,22 @@ VALUES
 DROP TABLE IF EXISTS categories;
 CREATE TABLE categories(
   id INT (10) PRIMARY KEY auto_increment,
-  cate_name VARCHAR (255) UNIQUE ,
-  cate_ename VARCHAR (255)
+  cate_name VARCHAR (255),
+  cate_ename VARCHAR (255),
+  is_customize VARCHAR (255) DEFAULT '0'
 )DEFAULT charset=utf8;
 
 INSERT INTO categories
-(cate_name, cate_ename)
+(cate_name, cate_ename, is_customize)
 VALUES
-('灯具','Lamps lanterns'),
-('家饰','The role ofing'),
-('收纳','the receive a');
+('灯具','Lamps lanterns','0'),
+('家饰','The role ofing','0'),
+('收纳','the receive a','0'),
+('灯具','lanterns','1'),
+('家饰','domesti cofing','1'),
+('沙发','the sofa','1'),
+('床','tea bed','1'),
+('茶几','tea table','1');
 
 DROP TABLE IF EXISTS goods;
 CREATE TABLE goods(
@@ -54,7 +60,32 @@ VALUES
 ('3','2','0','莱尔诗丹','LYLE POETRY DAN','/static/img/yb2_21.png','1999','打造干净舒适生活','金属，做旧'),
 ('3','2','0','多维尚书架','MULTIDIMENSIONAL HISTORY','/static/img/yb2_23.png','2999','一份简约，一份闲逸，尽享舒适书海','拼接，元素，个性'),
 ('2','3','1','梳妆收纳台','Receive dressing table','/static/img/yb2_37.png','3999','简约大方，每一天都迎来魅力无限的自己，全新的你！','全，个性，元素'),
-('2','3','1','简约风茶几','centracten tea table','/static/img/nxl_chaji_1.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新');
+('2','3','1','简约风茶几','centracten tea table','/static/img/nxl_chaji_1.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('1','4','1','欧美风灯饰','europe and united stateslamp','/static/img/nxl_deng1.png','999','柔和的灯光，闲逸的夜晚','元素，做旧'),
+('4','4','1','欧美风吊灯','europe type drop light','/static/img/nxl_1_20.png','899','哪里黑哪里装','拼接，金属'),
+('2','4','1','复古台灯','retro desk lamp','/static/img/nxl_1_22.png','799','现代简约灯!满足每个客户独特装饰的需要!','元素'),
+('3','4','0','蒲公英灯','Dandelion lamp','/static/img/small_03.png','1999','打造干净舒适生活','金属，做旧'),
+('3','4','0','梅花灯','Plum blossom','/static/img/small_04.png','2999','一份简约，一份闲逸，尽享舒适书海','拼接，元素，个性'),
+('2','4','0','琉璃灯','Glass lamp','/static/img/samll_02.png','3999','简约大方，每一天都迎来魅力无限的自己，全新的你！','全，个性，元素'),
+('2','5','1','玉兰花仿真花','magnolia simul ationflower','/static/img/nxl_jiashi_1.png','99','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','5','1','创意花瓶','creative vases place adorn','/static/img/nxl_1_36.png','399','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','5','1','创意仿真盆栽','creative simul ation bonsal','/static/img/nxl_1_32.png','999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','5','0','梅花盆栽','Plum blossom　bonsal','/static/img/small_011.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','5','0','吊兰盆栽','Chlorophyta adorn','/static/img/small_05.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','5','0','多肉盆栽','Succulents bonsal','/static/img/small_022.jpg','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','6','1','白色单人沙发','white modern sofas','/static/img/nxl_sofa_1.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','6','1','白色简约沙发','contracted white sofa','/static/img/nxl_1_42.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','6','1','室内高端沙发','indoor high-end sofa','/static/img/nxl_1_44.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','6','0','创意小木椅','centracten tea table','/static/img/small_07.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','6','0','懒人椅','centracten tea table','/static/img/small_08.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','6','0','家居沙发','centracten tea table','/static/img/small_09.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','7','1','北欧简约床','the nordic contr acted bed','/static/img/nxl_chuang_1.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','7','1','白色板式床','contracted wind tea table','/static/img/nxl_1_50.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','7','0','欧式天堂床','centracten tea table','/static/img/small_06.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','7','0','婚庆大红床','centracten tea table','/static/img/detail_13.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','8','1','简约风茶几','contracted wind tea table','/static/img/nxl_chaji_1.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','8','1','欧式古典茶几','contracted wind tea table','/static/img/nxl_1_56.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新'),
+('2','8','0','中式古茶几','china agin tea table','/static/img/small_02.png','3999','喜欢一片简约，舒适一片生活！','简洁，清新');
 
 DROP TABLE IF EXISTS brand;
 create table brand (
@@ -92,7 +123,32 @@ VALUES
 ('4','红木','实木质感','复古实木','700*80cm','长方形','/static/img/ybl6_01.png'),
 ('5','意大利乔木','复古实木','欧式复古','2000*1000cm','长方形','/static/img/ybl6_04.png'),
 ('6','西伯利亚枕木','实木质感','欧式简约','500*70cm','矩形','/static/img/ybl6_05.png'),
-('7','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/ybl6_02.png');
+('7','红木','质感','中士复古','6000*3000cm','矩形','/static/img/nxl_chaji_1.png'),
+('8','银','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_06.png'),
+('9','建木','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_20.png'),
+('10','果木','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_12.png'),
+('11','康宁','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_01.png'),
+('12','大猩猩玻璃','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_02.png'),
+('13','席梦思','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_04.png'),
+('14','鸭绒','纯色','中士复古','6000*3000cm','矩形','/static/img/detail_18.png'),
+('15','羊绒','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_22.png'),
+('16','纯色','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_31.png'),
+('17','杂色','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_05.png'),
+('18','碎花','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_07.png'),
+('19','清和','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_1111.jpg'),
+('20','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_19.png'),
+('21','国色','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_03.png'),
+('22','国风','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_29.png'),
+('23','古典','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_061.jpg'),
+('24','成熟','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_062.jpg'),
+('25','现代','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_063.jpg'),
+('26','家居','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_37.png'),
+('27','城市','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_32.png'),
+('28','果木','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_10.png'),
+('29','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_08.png'),
+('30','鸭绒','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_36.png'),
+('31','梨树','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_09.png'),
+('32','红木','实木质感','中士复古','6000*3000cm','矩形','/static/img/detail_11.png');
 
 
 DROP TABLE IF EXISTS orders;
@@ -139,8 +195,6 @@ create table evaluate (
   pic VARCHAR (255)
 )DEFAULT charset=utf8;
 
-DROP TABLE IF EXISTS customize;
-create table customize (
-  id INT (10) PRIMARY KEY auto_increment,
-  cate_name
-);
+
+
+

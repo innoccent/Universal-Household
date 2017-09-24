@@ -18,8 +18,8 @@ const con = mysql.createConnection({
 
 //获取分类
 router.get('/get_categories', (req, res) => {
-    let sql = "select * from categories";
-    con.query(sql, (err, result) => {
+    let sql = "select * from categories where is_customize = ?";
+    con.query(sql, [req.query.is_customize],(err, result) => {
         if (err) {
             res.json({code: 4, message: err.message});
         } else {
@@ -30,7 +30,7 @@ router.get('/get_categories', (req, res) => {
 
 //获取所有家具
 router.get('/get_goods', (req, res) => {
-    let sql = "select * from goods";
+    let sql = "select * from goods where cid in "+req.query.id;
     con.query(sql, (err, result) => {
         if (err) {
             res.json({code: 4, message: err.message});
@@ -228,6 +228,9 @@ router.post('/update_orders_status_by_oid', (req, res) => {
     } else {
         res.json({code: 4, message: '密码不正确'});
     }
-})
+});
+
+
+
 
 module.exports = router;

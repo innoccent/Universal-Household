@@ -18,6 +18,7 @@ import evaluate from '../components/me/Evaluate'
 import information from '../components/me/MeData'
 import address from '../components/me/Address.vue'
 import edsaddress from '../components/me/EditAddress.vue'
+import mode_details from '../components/mode_details.vue'
 
 
 Vue.use(Router)
@@ -113,6 +114,11 @@ export default new Router({
             path: '/edaddress',
             name: 'edaddress',
             component: edsaddress
+        },
+        {
+            path: '/modedetails',
+            name: 'modedetails',
+            component: mode_details
         }
     ]
 })

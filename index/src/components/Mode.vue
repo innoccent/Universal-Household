@@ -53,6 +53,8 @@
         border-radius: 0.4rem;
         margin: 0 auto;
         display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .main-top-main{
         width:100%;
@@ -79,6 +81,7 @@
     }
     .make-mode{
         margin:0 auto;
+        text-align: center;
     }
     .make-mode h1,.make-mode h2{
         color: #fff;

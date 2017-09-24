@@ -242,24 +242,31 @@
           }
         },
         mounted(){
-            fetch('/api/goods/get_categories')
+            fetch('/api/goods/get_categories?is_customize=0')
                 .then(res=>res.json())
                 .then(data=>{
                     if(data.code==2){
-                        data.data.forEach(v=>{
+                        var str = "(";
+                        data.data.forEach((v,i)=>{
+                            if(i==data.data.length-1){
+                                str+=v.id+');';
+                            }else{
+                                str+=v.id+',';
+                            }
                             v.cate_name=[...v.cate_name];
                             v.cate_ename=v.cate_ename.split(' ');
                             this.categories.push(v)
                         });
+                        fetch('/api/goods/get_goods?id='+str)
+                            .then(res=>res.json())
+                            .then(data=>{
+                                if(data.code==2){
+                                    this.goods=data.data;
+                                }
+                            })
                     }
                 })
-            fetch('/api/goods/get_goods')
-                .then(res=>res.json())
-                .then(data=>{
-                    if(data.code==2){
-                        this.goods=data.data;
-                    }
-                })
+
         }
     }
 </script>
