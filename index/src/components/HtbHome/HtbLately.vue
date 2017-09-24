@@ -3,7 +3,7 @@
         <ul class="lately-main">
             <li>
                 <div class="late-con-img">
-                    <img src="/static/img/htbimg/65721726247911.563536def341c.jpg" alt="">
+                    <img src="/static/img/htbimg/zj-1_18.png" alt="">
                     <div class="late-like">
                         <img src="/static/img/htbimg/like_03.png" alt="" v-show="true">
                         <img src="/static/img/htbimg/dislike_11.png" alt="" v-show="false">
@@ -41,7 +41,7 @@
             </li>
             <li>
                 <div class="late-con-img">
-                    <img src="/static/img/htbimg/247f7b26247911.563536f6b677d.jpg" alt="">
+                    <img src="/static/img/htbimg/zj-2_21.png" alt="">
                     <div class="late-like">
                         <img src="/static/img/htbimg/like_03.png" alt="" v-show="false">
                         <img src="/static/img/htbimg/dislike_11.png" alt="" v-show="true">

@@ -23,7 +23,7 @@
         <mysearch v-show="isSearch"></mysearch>
         <div class="h-home-banner">
             <ul class="h-home-ban-img">
-                <li><img src="/static/img/htbimg/1ae89826247911.563536dc721cd.jpg" alt=""></li>
+                <li><img src="/static/img/htbimg/banner_03.png" alt=""></li>
             </ul>
             <ul class="h-home-ban-cir">
                 <li></li>

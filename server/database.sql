@@ -138,3 +138,9 @@ create table evaluate (
   services VARCHAR (255),
   pic VARCHAR (255)
 )DEFAULT charset=utf8;
+
+DROP TABLE IF EXISTS customize;
+create table customize (
+  id INT (10) PRIMARY KEY auto_increment,
+  cate_name
+);
