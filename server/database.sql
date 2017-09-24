@@ -127,3 +127,20 @@ create table address (
 VALUES
 ('1','春花','18003210032','北京市,朝阳区','北京市朝阳区科荟路33号','100085','1'),
 ('1','香菜','13603065224','北京市,海淀区','北京市海淀区xx路33号','100085','0');
+
+
+DROP TABLE IF EXISTS evaluate;
+create table evaluate (
+  id INT (10) PRIMARY KEY auto_increment,
+  uid VARCHAR (255),
+  content VARCHAR (1000),
+  transport VARCHAR (255),
+  services VARCHAR (255),
+  pic VARCHAR (255)
+)DEFAULT charset=utf8;
+
+DROP TABLE IF EXISTS customize;
+create table customize (
+  id INT (10) PRIMARY KEY auto_increment,
+  cate_name
+);

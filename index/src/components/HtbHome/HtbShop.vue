@@ -3,7 +3,7 @@
         <ul class="h-shop-main">
             <li>
                 <div class="h-shop-img">
-                    <img src="/static/img/htbimg/abbe3638582475.5767b925bf8fd.jpg" alt="">
+                    <img src="/static/img/htbimg/t-1_07.png" alt="">
                 </div>
                 <div class="h-shop-tit">
                     <div>
@@ -30,7 +30,7 @@
             </li>
             <li>
                 <div class="h-shop-img">
-                    <img src="/static/img/htbimg/21825d26247911.563536e915db4.jpg" alt="">
+                    <img src="/static/img/htbimg/xs-2_07.png" alt="">
                 </div>
                 <div class="h-shop-tit">
                     <div>

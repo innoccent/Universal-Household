@@ -4,7 +4,7 @@
          <ul class="medata-content">
             <li>
                 <div class="cotent-left">
-                    <div class="logo">
+                    <div class="logo icon-zhanghu">
 
                     </div>
                     <h1>账户名</h1>
@@ -14,37 +14,37 @@
                     </div>
                 </div>
                 <div class="content-right">
-                    <h2>13546782311</h2>
+                    <h2>{{information.tel}}</h2>
                 </div>
             </li>
              <li>
                  <div class="cotent-left">
-                     <div class="logo">
+                     <div class="logo icon-nicheng">
 
                      </div>
-                     <h1>账户名</h1>
-                     <h2>Account name</h2>
+                     <h1>昵称</h1>
+                     <h2>nickname</h2>
                      <div class="circle">
                          <img src="/static/img/nxl_bg_circle.png" alt="">
                      </div>
                  </div>
                  <div class="content-right">
-                     <h2>13546782311</h2>
+                     <h2>{{information.username}}</h2>
                  </div>
              </li>
              <li>
                  <div class="cotent-left">
-                     <div class="logo">
+                     <div class="logo icon-shouhuodizhi">
 
                      </div>
-                     <h1>账户名</h1>
-                     <h2>Account name</h2>
+                     <h1>收货地址</h1>
+                     <h2>shopping address</h2>
                      <div class="circle">
                          <img src="/static/img/nxl_bg_circle.png" alt="">
                      </div>
                  </div>
-                 <div class="content-right">
-                     <h2>13546782311</h2>
+                 <div class="content-right" @click="jump">
+                     <h2 class="icon-iconfontxiangxia1copy19" style="font-family: 'iconfont'"></h2>
                  </div>
              </li>
          </ul>
@@ -54,10 +54,27 @@
     import meHeader from './meHeader.vue'
     export default{
         data(){
-            return {}
+            return {
+                information:{},
+                uid:localStorage.uid
+            }
         },
         components:{
             'meheader':meHeader
+        },
+        mounted(){
+            fetch('/api/user/get_info_by_id?id='+this.uid)
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.code==2){
+                        this.information=data.data;
+                    }
+                })
+        },
+        methods:{
+            jump(){
+                location.href='#/address'
+            }
         }
     }
 </script>
@@ -91,6 +108,11 @@
         height: 0.3rem;
         background: #1ee497;
         border-radius: 50%;
+        font-family: iconfont;
+        text-align: center;
+        color: #fff;
+        line-height:0.3rem;
+        font-size: 0.2rem;
     }
    .medata-content li h1{
        margin-left: 0.1rem;
@@ -112,6 +134,5 @@
     .content-right h2{
         font-size: 0.1rem;
         color: #6b6b6b;
-        padding-left: ;
     }
 </style>

@@ -24,12 +24,13 @@
                          <div class="line"></div>
                      </div>
                      <div class="center-title">
-                         <textarea v-model="content" placeholder="请输入您对本产品的评论" autofocus resize="none"></textarea>
+                         <textarea v-model="content" placeholder="请输入您对本产品的评论" autofocus maxlength="100"></textarea>
                          <el-upload
                                  action="/api/goods/orders_evaluate_currimg"
                                  list-type="picture-card"
                                  :on-preview="handlePictureCardPreview"
                                  :on-remove="handleRemove"
+                                 :on-success="success"
                                  class="upload"
                          >
                              <i class="el-icon-plus"></i>
@@ -49,7 +50,7 @@
                      </div>
                  <div class="title1"></div>
             </div>
-            <div class="button">
+            <div class="button" @click="submit">
                 <h2>确定发表</h2>
             </div>
         </div>
@@ -68,20 +69,44 @@
                 dialogImageUrl: '',
                 dialogVisible: false,
                 id:this.$route.query.id,
-                goodsinfo:{}
+                goodsinfo:{},
+                files:null,
+                uid:localStorage.uid
             }
         },
         methods:{
-            change(){
-                this.file=this.$refs.file;
-                console.dir(this.$refs.file.files[0])
-            },
             handleRemove(file, fileList) {
-                console.log(file, fileList);
+                this.files=null;
             },
             handlePictureCardPreview(file) {
                 this.dialogImageUrl = file.url;
                 this.dialogVisible = true;
+            },
+            success(res,file){
+                this.files=res;
+            },
+            submit(){
+                if(this.content.length>10){
+                    if(this.value1&&this.value2){
+                        fetch('/api/goods/upload_evaluate_by_uid',{
+                            method:'POST',
+                            headers:{'Content-Type':'application/json'},
+                            body:JSON.stringify({id:this.id,uid:this.uid,file:this.files,content:this.content,wuliu:this.value1,fuwu:this.value2})
+                        })
+                            .then(res=>res.json())
+                            .then(data=>{
+                                if(data.code==2){
+                                    location.href = '#/order?status=4'
+                                }else{
+                                    this.$message.error('服务器开小差了，请再次提交')
+                                }
+                            })
+                    }else{
+                        this.$message.error('请给予商家评分')
+                    }
+                }else{
+                    this.$message.error('评论长度不可小于10')
+                }
             }
         },
         mounted(){
@@ -93,6 +118,7 @@
                 align-items: center;
                 justify-content: center;
             `;
+
             fetch('/api/goods/get_goods_info_by_id?id='+this.id)
                 .then(res=>res.json())
                 .then(data=>{
@@ -243,6 +269,8 @@
         height: 1.04rem;
         display: flex;
         flex-direction: column;
+        position: relative;
+        overflow: hidden;
     }
     .center-title .upload{
         /*margin-top: 0.25rem;*/
@@ -251,15 +279,22 @@
         outline: none;
         border:none;
         display: flex;
-        overflow: hidden;
+        /*overflow: hidden;*/
         -webkit-tap-highlight-color: transparent;
-        position: relative;
+        position: absolute;
         z-index: 99;
         line-height:0.4rem!important;
+        right: 0.3rem;
+        bottom:0.4rem;
+
+    }
+    .el-upload-list--picture-card .el-upload-list__item-thumbnail{
+        width:100%;
+        height: auto;
     }
     .center-title textarea{
         font-size: 0.12rem;
-        width:100%;
+        width:70%;
         height:calc(100% - 0.4rem);
         color:#6b6b6b;
         font-weight: normal;

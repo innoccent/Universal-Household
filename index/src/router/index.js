@@ -7,15 +7,18 @@ import login from '../components/login/Login'
 import yloginin from '../components/login/yloginin.vue'
 import yregister from '../components/login/yregister.vue'
 import classify from '../components/class/classify.vue'
-import Mode  from  '../components/Mode'
+import Mode from '../components/Mode'
 import MeData from '../components/me/MeData'
-import  Address from '../components/me/Address'
-import Me  from '../components/Me'
+import Address from '../components/me/Address'
+import Me from '../components/Me'
 import GoodsDetails from '../components/GoodsDetails.vue'
 import OnlinePay from '../components/OnlinePay.vue'
 import Order from '../components/Order'
 import evaluate from '../components/me/Evaluate'
 import SearchResult from '../components/SearchResult.vue'
+import information from '../components/me/MeData'
+import address from '../components/me/Address.vue'
+import edsaddress from '../components/me/EditAddress.vue'
 
 Vue.use(Router)
 
@@ -95,6 +98,21 @@ export default new Router({
           path:'/evaluate',
           name:'evaluate',
           component:evaluate
+      },
+      {
+          path: '/information',
+          name: 'information',
+          component: information
+      },
+      {
+          path: '/address',
+          name: 'address',
+          component: address
+      },
+      {
+          path: '/edaddress',
+          name: 'edaddress',
+          component: edsaddress
       },
       {
           path:'/searchresult',
