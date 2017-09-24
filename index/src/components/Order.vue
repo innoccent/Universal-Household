@@ -128,11 +128,11 @@
                     </ul>
                 </li>
                 <div class="pay" :style="{justifyContent:v.status==4?'flex-end':'space-between'}">
-                    <h2 v-if="v.status==1||v.status==2||v.status==3">合计 <span>{{total}}.00</span> <span>RMB</span></h2>
-                    <div class="gopay" v-if="v.status==1">去付款</div>
-                    <div class="gopay" v-else-if="v.status==2">提醒卖家发货</div>
+                    <h2 v-if="v.status==1||v.status==2||v.status==3">合计 <span>{{v.num*v.goods_price}}.00</span> <span>RMB</span></h2>
+                    <div class="gopay" v-if="v.status==1" @click="apply(v)">去付款</div>
+                    <div class="gopay" v-else-if="v.status==2" @click="notices">提醒卖家发货</div>
                     <div class="gopay" v-else-if="v.status==3" @click="confirm_order(v)">确认收货</div>
-                    <div class="gopay" v-else @click="evaluate(v)">去评价</div>
+                    <div class="gopay" v-else-if="v.status==4" @click="evaluate(v)">去评价</div>
                 </div>
             </ul>
         </div>
@@ -189,6 +189,15 @@
             }
         },
         methods:{
+            notices(){
+              this.$message({
+                  message:'提醒卖家成功',
+                  type: 'warning'
+              });
+            },
+            apply(v){
+                location.href='#/onlinepay?name='+this.$route.name+'&vid='+v.id;
+            },
             evaluate(v){
                 location.href='#/evaluate?id='+v.id;
             },

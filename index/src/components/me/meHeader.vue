@@ -6,7 +6,7 @@
                 <img src="/static/img/nxl_jiangtou_left.png" alt="">
             </div>
         </router-link>
-        <div class="center-content" v-if="$route.name=='medata'">
+        <div class="center-content" v-if="$route.name=='information'">
             <h1 >个人资料</h1>
             <h2>PERSONAL DATA</h2>
         </div>
@@ -39,7 +39,7 @@
         top:0;
         display: flex;
         justify-content: center;
-        z-index:9999;
+        z-index:2000;
     }
     .ceter-left{
         height: 100%;

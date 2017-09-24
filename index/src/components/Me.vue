@@ -1,7 +1,7 @@
 <template>
     <div class="me">
         <div class="meheader">
-            <a href="#/home">
+            <a href="javascript:;">
                 <div class="header">
                     <h1 >个人中心</h1>
                     <h2>PERSONAL <span>CENTER</span></h2>
@@ -11,7 +11,7 @@
                 </div>
                 <div class="header-logo">
                 </div>
-                <div class="logo-right">
+                <div class="logo-right" @click="jump('information')">
                     <span class="iconfont icon-dingdan-copy copy" ></span>
                 </div>
             </a>
@@ -35,7 +35,7 @@
             </div>
             <div class="line"></div>
             <ul class="order-1">
-                <li @click="getOrder()">
+                <li @click="getOrder(1)">
                     <div class="order-logo1">
                         <span class="iconfont icon-dingdan "></span>
                     </div>
@@ -44,7 +44,7 @@
                         <h3>THE PAYMENT</h3>
                     </div>
                 </li>
-                <li>
+                <li @click="getOrder(2)">
                     <div class="order-logo1">
                         <span class="iconfont icon-baozhuang"></span>
                     </div>
@@ -53,7 +53,7 @@
                         <h3>SEND THE GOODS</h3>
                     </div>
                 </li>
-                <li>
+                <li @click="getOrder(3)">
                     <div class="order-logo1">
                         <span class="iconfont icon-fahuo"></span>
                     </div>
@@ -62,7 +62,7 @@
                         <h3>FOR THE GOODS</h3>
                     </div>
                 </li>
-                <li>
+                <li @click="getOrder(4)">
                     <div class="order-logo1">
                         <span class="iconfont icon-pingjia"></span>
                     </div>
@@ -73,7 +73,7 @@
                 </li>
             </ul>
             <ul class="order-2">
-                <a href="">
+                <a href="javascript:;">
                     <li>
                         <div class="shoucang">
                             <div class="order-2-circle">
@@ -88,7 +88,7 @@
                         </div>
                     </li>
                 </a>
-                <a href="">
+                <a href="javascript:;">
                     <li>
                         <div class="shoucang">
                             <div class="order-2-circle">
@@ -103,7 +103,7 @@
                         </div>
                     </li>
                 </a>
-                <a href="">
+                <a href="javascript:;">
                     <li>
                         <div class="shoucang">
                             <div class="order-2-circle">
@@ -140,6 +140,14 @@
                 .then(data=>{
                     this.info = data.data;
                 })
+        },
+        methods:{
+            getOrder(status){
+                location.href='#/order?status='+status
+            },
+            jump(locations){
+                location.href=`#/${locations}`;
+            }
         }
     }
 </script>

@@ -3,51 +3,31 @@
         <meheader></meheader>
         <div class="commit-content">
             <ul>
-                <li>
+                <li v-for="v in address" :key="v.id" @click="edit(v.id)">
                     <div class="content-main">
 
                     </div>
                     <div class="top">
                         <span></span>
                         <span></span>
-                        <h2>浅心</h2>
-                        <h3>13523469919</h3>
+                        <h2>{{v.ad_name}}</h2>
+                        <h3>{{v.ad_tel}}</h3>
                     </div>
                     <div class="add">
                         <h2>
-                            北京市 &nbsp;&nbsp;&nbsp;朝阳区
+                            {{v.ad_area.split(',')[0]}} &nbsp;&nbsp;&nbsp;{{v.ad_area.split(',')[1]}}
                         </h2>
                         <div class="line"></div>
                     </div>
                     <div class="address-content">
                         <span class="iconfont icon-dizhi dizhi"></span>
-                        <span class="address-1">北京市朝阳区上地东路1号盈创动力大厦502室</span>
+                        <span class="address-1">{{v.ad_address}}</span>
                     </div>
                 </li>
-                <li>
-                    <div class="content-main">
 
-                    </div>
-                    <div class="top">
-                        <span></span>
-                        <span></span>
-                        <h2>浅心</h2>
-                        <h3>13523469919</h3>
-                    </div>
-                    <div class="add">
-                        <h2>
-                            北京市 &nbsp;&nbsp;&nbsp;朝阳区
-                        </h2>
-                        <div class="line"></div>
-                    </div>
-                    <div class="address-content">
-                        <span class="iconfont icon-dizhi dizhi"></span>
-                        <span class="address-1">北京市朝阳区上地东路1号盈创动力大厦502室</span>
-                    </div>
-                </li>
             </ul>
         </div>
-        <div class="add-bottom">
+        <div class="add-bottom" @click="add">
            <span class="iconfont icon-shizi"></span>
             <h2>添加新的收货地址</h2>
         </div>
@@ -57,10 +37,30 @@
     import meHeader from './meHeader.vue'
     export default{
         data(){
-            return {}
+            return {
+                address:[],
+                uid:localStorage.uid
+            }
         },
         components:{
             'meheader':meHeader
+        },
+        mounted(){
+            fetch('/api/user/get_address_by_uid?uid='+this.uid)
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.code==2){
+                        this.address=data.data;
+                    }
+                })
+        },
+        methods:{
+            add(){
+                location.href='#/edaddress'
+            },
+            edit(id){
+                location.href='#/edaddress?aid='+id;
+            }
         }
     }
 </script>
@@ -122,6 +122,7 @@
     .address-content{
         display: flex;
         margin-top: 0.22rem;
+        padding-bottom: 0.7rem;
     }
     .address-content h2{
        font-size: 0.12rem;
@@ -135,7 +136,7 @@
         color: #6b6b6b;
     }
     .add-bottom{
-        position: absolute;
+        position: fixed;
         bottom:0;
         left:0;
         width:100%;

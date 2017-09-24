@@ -85,12 +85,12 @@
                     <h2>请输入您的密码</h2>
                     <span>PLEASE ENTER YOUR PASSWORD</span>
                     <div class="input">
-                        <input type="password" v-model="currkey1">
-                        <input type="password" v-model="currkey2">
-                        <input type="password" v-model="currkey3">
-                        <input type="password" readonly v-model="currkey4">
-                        <input type="password" readonly v-model="currkey5">
-                        <input type="password" readonly v-model="currkey6">
+                        <input type="password" readonly v-model="currkey1" maxlength="1">
+                        <input type="password" readonly v-model="currkey2" maxlength="1">
+                        <input type="password" readonly v-model="currkey3" maxlength="1">
+                        <input type="password" readonly v-model="currkey4" maxlength="1">
+                        <input type="password" readonly v-model="currkey5" maxlength="1">
+                        <input type="password" readonly v-model="currkey6" maxlength="1">
                     </div>
                     <button @click="submit">确认</button>
                 </div>
@@ -117,7 +117,8 @@
                 currkey6:'',
                 index:0,
                 message:'',
-                status:true
+                status:true,
+                id:this.$route.query.vid
             }
         },
         methods:{
@@ -147,35 +148,58 @@
                     }
                 })
                 if(flag){
-                    let orders = JSON.parse(localStorage.currOrder);
-                    orders.password = password.join('');
-                    orders.status='2';
-                    fetch('/api/goods/set_order',{
-                        method:'POST',
-                        headers:{'Content-Type':'application/json'},
-                        body:JSON.stringify(orders)
-                    })
-                        .then(res=>res.json())
-                        .then(data=>{
-                            if(data.code==4){
-                                for(let i = 1; i <= 6; i++){
-                                    let currkey = 'currkey'+i;
-                                    this[currkey]='';
-                                }
-                                this.index=0;
-                                this.message=data.message;
-                                this.active1=false;
-                                this.next();
-                                this.choice=false;
-                                this.status=false;
-                            }else if(data.code==2){
-                                localStorage.currOrder = [];
-                                location.href='#/order?status=2';
-                            }
+                    if(this.id){
+                        fetch('/api/goods/update_orders_status_by_oid',{
+                            method:'POST',
+                            headers:{'Content-Type':'application/json'},
+                            body:JSON.stringify({id:this.id,status:2,password:password.join('')})
                         })
+                            .then(res=>res.json())
+                            .then(data=>{
+                                if(data.code==4){
+                                    for(let i = 1; i <= 6; i++){
+                                        let currkey = 'currkey'+i;
+                                        this[currkey]='';
+                                    }
+                                    this.index=0;
+                                    this.message=data.message;
+                                    this.active1=false;
+                                    this.next();
+                                    this.choice=false;
+                                    this.status=false;
+                                }else if(data.code==2){
+                                    location.href='#/order?status=2';
+                                }
+                            })
+                    }else{
+                        let orders = JSON.parse(localStorage.currOrder);
+                        orders.password = password.join('');
+                        orders.status='2';
+                        fetch('/api/goods/set_order',{
+                            method:'POST',
+                            headers:{'Content-Type':'application/json'},
+                            body:JSON.stringify(orders)
+                        })
+                            .then(res=>res.json())
+                            .then(data=>{
+                                if(data.code==4){
+                                    for(let i = 1; i <= 6; i++){
+                                        let currkey = 'currkey'+i;
+                                        this[currkey]='';
+                                    }
+                                    this.index=0;
+                                    this.message=data.message;
+                                    this.active1=false;
+                                    this.next();
+                                    this.choice=false;
+                                    this.status=false;
+                                }else if(data.code==2){
+                                    localStorage.currOrder = [];
+                                    location.href='#/order?status=2';
+                                }
+                            })
+                    }
                 }
-//                location.href=''
-//                history.go(0);
             }
         },
         mounted(){
