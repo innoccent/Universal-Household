@@ -15,11 +15,11 @@ import GoodsDetails from '../components/GoodsDetails.vue'
 import OnlinePay from '../components/OnlinePay.vue'
 import Order from '../components/Order'
 import evaluate from '../components/me/Evaluate'
+import SearchResult from '../components/SearchResult.vue'
 import information from '../components/me/MeData'
 import address from '../components/me/Address.vue'
 import edsaddress from '../components/me/EditAddress.vue'
 import mode_details from '../components/mode_details.vue'
-
 
 Vue.use(Router)
 
@@ -119,6 +119,12 @@ export default new Router({
             path: '/modedetails',
             name: 'modedetails',
             component: mode_details
+        },
+
+        {
+            path: '/searchresult',
+            name: 'searchresult',
+            component: SearchResult
         }
     ]
 })

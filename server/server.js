@@ -9,7 +9,7 @@ const multer = require('multer');
 const upload = multer({dest:'./public/tmp'});
 
 const crypto = require('crypto');
-const md5 = require('./class/function')
+const md5 = require('./class/function');
 
 
 //加载登录路由
